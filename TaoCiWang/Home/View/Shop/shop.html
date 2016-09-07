@@ -1,0 +1,303 @@
+<extend name='Index/index' />
+<block name='main'>
+	<!--中间代码开始-->
+	 <div class="l_gwc1"> 
+	 <div class="l_gwcr">
+	 <table class="l_hdxx" border="0" width="974">
+	  <tbody><tr>
+	    <td style="color:#fff;" width="32%">1、我的购物车</td>
+	    <td width="33%">2、填写并核对订单信息</td>
+	    <td width="35%">3、订单详情</td>
+	  </tr>
+	 </tbody></table>
+	 </div>
+	 </div>
+	 
+	 <div class="l_lgw"> 
+	 <div class="l_lgwl">我的购物车 </div>
+	 </div>
+
+
+
+	<!--表格开始-->
+	<div class="l_lgww">
+	    <table id="listTable" style="margin-top: 0px; font-size: 14px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+	        <thead>
+	            <tr>
+	                    <td style="background: #f3f3f3;" width="5%" height="30">
+	                        <input  id="ckboxAll1" style="float: right" class="checkall" type="checkbox" onclick="selectAll(this);">
+	                    </td>
+	                <td style="background: #f3f3f3;" width="10%" height="30">
+	                    <label width="70" for="ckboxAll1" style="cursor: pointer;">商品图片</label></td>
+	                <td style="background: #f3f3f3;" width="25%" height="30">商品信息</td>
+	                <td style="background: #f3f3f3;" width="15%" height="30">单价（元）</td>
+	                <td style="background: #f3f3f3;" width="15%" height="30">数量</td>
+	                <td style="background: #f3f3f3;" width="10%" height="30">库存</td>
+	                <td style="background: #f3f3f3;" width="10%" height="30">金额（元）</td>
+	                    <td style="background: #f3f3f3;" width="10%" height="30">操作</td>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        <script>
+	        	$('#ceshi').change(function(){
+	        		var value=$('#ceshi').val();
+	        		console.log(value);
+	        	})
+	        </script>
+	        	<volist name='data' id='vo'>
+			        <tr>
+				        <td class="l_tdk">
+				            <!--保存Identifier-->
+				                <input id="rowCkbox_505" class="checked" name="rowCkbox" style="float: right" type="checkbox" value='{$vo.id}'>
+				            <!-- <label name="rowNumber" for="rowCkbox_undefined" style="cursor: pointer;">1</label> -->
+				        </td>
+				        <td class="l_tdk">
+				            <a href="{:U('Detail/detail')}?id={$vo.id}">
+				                <img src="/xiangmu/TaoCiWang{$vo.photo}" width="80" height="80">
+				            </a>
+				        </td>
+				        <td class="l_tdk">
+				            <p class="l_aa"><a href="" name="GoodsName" style='text-align: center;display: block;'>商品名：{$vo.name}</a></p>
+				            <p class="l_aaa"><a href="" name="GoodsInfo" style='text-align: center;display: block;'>介绍：{$vo.desc}</a></p>
+				        </td>
+				        <td class="l_tdk"><span class="l_lysw1" name="OldPrice">￥{$vo.price}</span>
+				            <br>
+				            ￥<span name="Price" class='price'>{$vo.price}</span></td>
+				        <td class="l_tdk">
+				            <div class="l_jj">
+				                <ul>
+				                    <li style="cursor: pointer; width: 24px;" name="dec" class="dec">- </li>
+				                    <li style="width: 50px;">
+				                        <input value="{$vo.number}" style="width: 46px; height: 22px; border: none; text-align: center;" class="num" name="Quantity" type="text" readonly>
+				                    </li>
+				                    <li style="border-right: 0; cursor: pointer; width: 24px;" name="add" class="add">+ </li>
+				                </ul>
+				            </div>
+				        </td>
+				        <td class="l_tdk" width="10%"><span name="SkuQuantity" class="kc">{$vo.num}</span>件</td>
+				        <td class="l_lysw" width="10%"><span name="RowSum">￥<span class="total">{$vo.total}</span></span></td>
+			            <td class="l_tdk" width="18%"><a style="cursor: pointer;" data='{$vo.sid}' class="delete">删除 </a></td>
+				    </tr>
+			    </volist>
+		    </tbody>
+		    </table>
+		        <!--分页-->
+	        <div>
+
+
+	<div class="l_jsp">
+	    <div class="l_jspl">
+	            <div class="l_jspll">
+	                <input id="ckboxAll2" class="checkall" type="checkbox" onclick="selectAll(this);">
+	                <label for="ckboxAll2" style="cursor: pointer;">全选</label>&nbsp;&nbsp; 
+	                <a style="cursor:pointer;" id='delete'>删除选择</a>
+	            </div>
+	        <div id="FeeNote" class="l_jspll" style="width: 340px; color: gray; font-size: 16px;">满199元包邮，普通邮件10元/件(套)</div>
+	        <div class="l_jsplr" style="text-align: right; padding-right: 10px;">
+	            已选商品<font class="l_sz" id="selectRowCount">0</font>件
+	            &nbsp;&nbsp;&nbsp; 
+	            合计:商品<font id="CashSum" class="l_sz">￥<span id='total'>0</span></font>
+	            +运费<font class="l_sz" id="FeeSum">￥<span>10.00</span></font>
+
+	            <label id="sumRedeemCode" style="display: none">
+	                -优惠<font class="l_sz" name="cash">￥0.00</font>
+	            </label>
+	            =<span id="TotalCash">￥<span>10.00</span></span>
+	        </div>
+	    </div>
+	        <div class="l_jspr" id='balance' style="cursor: pointer;">结算</div>
+	</div>
+
+
+	 
+
+	<div class="l_lgw_a"> 
+	 <div class="l_lgwl_a">猜你喜欢的</div>
+	 <div class="l_lgwr_a"> </div>
+	</div>
+	<div class="xp_l">
+		<ul> 
+			<li> 
+			   <a href="" title="雅典神话22头"><img src="" width="200" height="200"></a>
+			   <p style="border-bottom:1px dotted #cfccc5"><span class="l_ys1">￥1080.00</span> <span class="l_ys2">￥1080.00</span></p>
+			   <p><a href="" title="雅典神话22头">雅典神话22头</a></p>
+		  </li>           
+		</ul>
+	</div>
+
+	<script>
+		//删除商品
+		$('.delete').click(function(){
+			var sid=$(this).attr('data');
+			$.ajax({
+				type:"POST",
+				url:"{:U('Shop/delete')}",
+				data:"id="+sid,
+				success:function(msg){
+					if(msg=='ok'){
+						layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除成功</div>'
+                        });
+                        location.reload();
+					}else{
+						layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除失败</div>'
+                        });
+					}
+				}
+			})
+		})
+
+
+		// $.('.price').each(function(){
+		// 	var dan=Number($(this).val());
+		// 	var shu=Number($(this).parents('.l_tdk').next().find('.num').val());
+		// 	var zong=dan*shu;
+		// 	alert(zong)
+		// 	$(this).parents('.l_tdk').siblings('.l_lysw').find('.total').html(zong);
+		// })
+		//商品数目的增加、减少
+		$('.dec').click(function(){
+			var price=Number($(this).parents('.l_tdk').prev().find('.price').html());
+			var num=Number($(this).next().find('.num').val());
+			var total=price*(num-1);
+			var res=$(this).parents('.l_tdk').siblings('.l_lysw').find('.total').html(total);
+			var now=$(this).next().find('.num').val(num-1);
+			if(num<=1){
+				$(this).next().find('.num').val(1);
+				$(this).parents('.l_tdk').siblings('.l_lysw').find('.total').html(price);
+			}
+			totals()
+		})
+
+		$('.add').click(function(){
+			var price=Number($(this).parents('.l_tdk').prev().find('.price').html());
+			var num=Number($(this).prev().find('.num').val());
+			var total=price*(num+1);
+			var res=$(this).parents('.l_tdk').siblings('.l_lysw').find('.total').html(total);
+			var now=$(this).prev().find('.num').val(num+1);
+			var kc=Number($(this).parents('.l_tdk').next().find('.kc').html());
+			if(num>=kc){
+				$(this).prev().find('.num').val(kc);
+				alert('库存不足');
+			}
+			totals()
+		})
+
+		//全选
+		function selectAll(checkbox) {
+                $('input[type=checkbox]').prop('checked', $(checkbox).prop('checked'));
+        }
+
+        //选中的商品
+        function totals(){
+        	zongji=0
+	        $('.l_tdk>input[type=checkbox]').each(function(eq){
+	        	var bool=$(this).is(':checked');
+	        	if(bool)
+	        	{
+	        		var res=Number($(this).parents('.l_tdk').siblings('.l_lysw').find('.total').html());
+	        		zongji=zongji+res;
+	        	}
+	        });
+	        //运费
+	        if(zongji>=199){
+	        	$('#FeeSum').children().html('0');
+	        }
+	        //总价（不含运费）
+	        $('#total').html(zongji);
+	        //运费
+	        var yun=Number($('#FeeSum').children().html());
+	        //总价（含运费）
+	        var total_y=zongji+yun;
+	        $('#TotalCash').children().html(total_y);
+	        
+        }
+        
+        var arr=new Array();
+        function checkeds(){
+        	$('input[type=checkbox]').change(function(){
+	        	totals();
+	        	arr=new Array();
+	        	$('.l_tdk>input[type=checkbox]').each(function(){
+	        		var bool=$(this).is(':checked');
+		        	if(bool)
+		        	{
+		        		var checked=$(this).val();
+		        		arr.push(checked);
+		        	}
+	        	})
+	        	//件数
+	      		$('#selectRowCount').html(arr.length);
+	        })
+        }
+        checkeds();
+        totals();
+
+        //删除所选
+        $("#delete").click(function(){
+        	$.ajax({
+        		type:'POST',
+        		url:"{:U('Shop/dels')}",
+        		data:"arr="+arr,
+        		success:function(msg){
+        			if(msg=='ok'){
+        				layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除成功</div>'
+                        });
+                       	location.reload();
+        			}else{
+        				layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除失败</div>'
+                        });
+        			}
+        		}
+        	})
+        })
+
+        //结算
+        $('#balance').click(function(){
+        	if(arr.length==0){
+        		layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">请选择商品</div>'
+                        });
+        	}else{
+        		$.ajax({
+	        		type:'POST',
+	        		async:false,
+	        		url:"{:U('CheckInfo/recive')}",
+	        		data:"arr="+arr,
+	        		success:function(msg){
+	        			window.location.href='{:U("CheckInfo/checkinfo")}';
+	        		}
+	        	})
+        	}
+        })
+
+	</script>
+</block>

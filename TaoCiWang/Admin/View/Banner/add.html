@@ -1,0 +1,30 @@
+<extend name="Public/base" />
+<block name="main">
+    <h1>添加分类</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>Banner管理</span></a>
+    <span>></span>
+    <span>添加Banner</span>
+	<section>
+        <span style="margin:20px 0;display: block;">商品预览图：</span>
+        <form action="{:U('Banner/insert')}" method="post" enctype="multipart/form-data"> 
+	        <!-- 加载编辑器的容器 -->
+	        <script id="container" name="banner" type="text/plain"></script>
+	        <!-- 配置文件 -->
+	        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.config.js"></script>
+	        <!-- 编辑器源码文件 -->
+	        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.all.js"></script>
+	        <!-- 实例化编辑器 -->
+	        <script type="text/javascript">
+	            var ue = UE.getEditor('container',{
+	              toolbars: [
+	                  ['fullscreen', 'source', 'undo', 'redo', 'simpleupload','insertimage']
+	              ]
+	            });
+	        </script>
+
+	        <input value="添加" class="group_btn" type="submit">
+      </form>
+     </section>
+</block>

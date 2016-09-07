@@ -1,0 +1,2198 @@
+[ 2016-05-07T09:44:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001093s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001804s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006578s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000390s ]
+
+[ 2016-05-07T09:44:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001742s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.105766s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000359s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006720s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000376s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000334s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000157s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018687s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018769s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002053s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002142s ]
+
+[ 2016-05-07T09:44:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001768s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005780s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000505s ]
+
+[ 2016-05-07T09:46:54+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002036s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006579s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000253s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.008656s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000623s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000407s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000208s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000320s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029436s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029578s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001296s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005377s ]
+
+[ 2016-05-07T09:46:54+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001144s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001814s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007356s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000624s ]
+
+[ 2016-05-07T09:48:25+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001090s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001839s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008546s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.001585s ]
+
+[ 2016-05-07T09:48:25+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002959s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007041s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000210s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006551s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000314s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000149s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000221s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023388s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023513s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000801s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000897s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001808s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001966s ]
+
+[ 2016-05-07T09:48:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001573s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006389s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000375s ]
+
+[ 2016-05-07T09:48:36+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002610s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006007s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000356s ]
+
+[ 2016-05-07T09:48:48+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000994s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001602s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007713s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000837s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.007335s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000391s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000281s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000214s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022286s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022382s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000732s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001618s ]
+
+[ 2016-05-07T09:48:48+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003483s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007064s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000461s ]
+
+[ 2016-05-07T09:49:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001972s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007370s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000629s ]
+
+[ 2016-05-07T09:49:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003209s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006931s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000246s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006903s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000433s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000308s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000196s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000322s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030124s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030216s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000842s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001190s ]
+
+[ 2016-05-07T09:49:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002304s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006564s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000330s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.008081s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000387s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000274s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000137s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000218s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017596s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017687s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001209s ]
+
+[ 2016-05-07T09:49:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001999s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.010310s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.001429s ]
+
+[ 2016-05-07T09:49:50+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002204s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007821s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000224s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006398s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000533s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000431s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000163s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000247s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025500s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025585s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001581s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001698s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002278s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002434s ]
+
+[ 2016-05-07T09:49:50+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003053s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007101s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000460s ]
+
+[ 2016-05-07T09:49:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001952s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002956s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006028s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000222s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.005037s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000956s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000511s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000307s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000419s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032698s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032796s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000945s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001015s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002003s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002105s ]
+
+[ 2016-05-07T09:49:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001815s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006461s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.001025s ]
+
+[ 2016-05-07T09:50:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003565s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.009445s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000183s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.003853s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=7 ) LIMIT 1   [ RunTime:0.000314s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000235s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019433s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019548s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004974s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005087s ]
+
+[ 2016-05-07T09:50:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006738s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000462s ]
+
+[ 2016-05-07T09:50:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001864s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.008651s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.001560s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.010108s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000584s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000517s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000148s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000229s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023862s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023970s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000845s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000965s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001405s ]
+
+[ 2016-05-07T09:50:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001836s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002744s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008025s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000487s ]
+
+[ 2016-05-07T09:51:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000805s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001301s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.008158s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000271s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.004999s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000371s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000212s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021437s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021562s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000810s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000894s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001406s ]
+
+[ 2016-05-07T09:51:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002865s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006286s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000574s ]
+
+[ 2016-05-07T09:51:50+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002276s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007666s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000426s ]
+
+[ 2016-05-07T09:51:50+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001702s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007537s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000212s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006752s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000408s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000322s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016455s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016531s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000565s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001118s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001203s ]
+
+[ 2016-05-07T09:53:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001466s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.008132s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000347s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.008669s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000417s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000299s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000119s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021561s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021653s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001341s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001433s ]
+
+[ 2016-05-07T09:53:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002302s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.009299s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000734s ]
+
+[ 2016-05-07T09:57:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004445s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005623s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000398s ]
+
+[ 2016-05-07T09:57:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001999s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007831s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000297s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.007545s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000658s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000562s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020481s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020559s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000529s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000577s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001191s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001259s ]
+
+[ 2016-05-07T09:58:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002576s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007817s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000366s ]
+
+[ 2016-05-07T09:58:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/modify
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002029s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.010977s ]
+NOTIC: [8] Undefined index: id C:\xampp\htdocs\xiangmu\TaoCiWang\TaoCiWang\Admin\Controller\ModifyController.class.php 第 8 行.
+SQL: SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1   [ RunTime:0.000247s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_goods` WHERE ( id= ) LIMIT 1  
+SQL: DESCRIBE taoci_type [ RunTime:0.006663s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id= ) LIMIT 1   [ RunTime:0.000243s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `taoci_type` WHERE ( id= ) LIMIT 1  
+SQL: SELECT * FROM `taoci_type` WHERE ( pid=0 )  [ RunTime:0.000416s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000316s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000422s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020215s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020313s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000715s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001350s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001437s ]
+
+[ 2016-05-07T10:00:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001834s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006188s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000470s ]
+
+[ 2016-05-07T10:02:39+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001967s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006390s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000801s ]
+
+[ 2016-05-07T10:02:40+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001653s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006583s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000411s ]
+
+[ 2016-05-07T10:03:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003333s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007256s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000450s ]
+
+[ 2016-05-07T10:04:05+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002026s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006445s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000498s ]
+
+[ 2016-05-07T10:07:06+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003007s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007124s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000642s ]
+
+[ 2016-05-07T10:07:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000948s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001571s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007435s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000500s ]
+
+[ 2016-05-07T10:07:29+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002117s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007742s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000546s ]
+
+[ 2016-05-07T10:07:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002060s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007338s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000414s ]
+
+[ 2016-05-07T10:09:05+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000962s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001514s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008762s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000588s ]
+
+[ 2016-05-07T10:09:08+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001868s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006201s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000441s ]
+
+[ 2016-05-07T10:09:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002106s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007176s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000509s ]
+
+[ 2016-05-07T10:12:15+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002533s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007829s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000473s ]
+
+[ 2016-05-07T10:13:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002251s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006023s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000537s ]
+
+[ 2016-05-07T10:13:29+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002036s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007339s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000489s ]
+
+[ 2016-05-07T10:13:45+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001925s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007289s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000496s ]
+
+[ 2016-05-07T10:13:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001889s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006367s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000445s ]
+
+[ 2016-05-07T10:14:00+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001167s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004543s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000324s ]
+
+[ 2016-05-07T10:14:02+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001178s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001907s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005479s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000376s ]
+
+[ 2016-05-07T10:14:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001129s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005892s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000371s ]
+
+[ 2016-05-07T10:14:21+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001736s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007108s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000474s ]
+
+[ 2016-05-07T10:14:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002009s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007474s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000424s ]
+
+[ 2016-05-07T10:14:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000898s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001477s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005518s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000394s ]
+
+[ 2016-05-07T10:15:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002035s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007509s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000405s ]
+
+[ 2016-05-07T10:15:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002326s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007839s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000615s ]
+
+[ 2016-05-07T10:16:00+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003688s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006185s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000461s ]
+
+[ 2016-05-07T10:20:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001809s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005156s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000405s ]
+
+[ 2016-05-07T10:20:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000800s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001253s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004395s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000342s ]
+
+[ 2016-05-07T10:20:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001126s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001861s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004623s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000348s ]
+
+[ 2016-05-07T10:20:45+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001786s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005137s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000380s ]
+
+[ 2016-05-07T10:21:01+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001878s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004101s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000319s ]
+
+[ 2016-05-07T10:21:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001504s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.003828s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000332s ]
+
+[ 2016-05-07T10:22:02+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001810s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005880s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000435s ]
+
+[ 2016-05-07T10:22:04+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005370s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000341s ]
+
+[ 2016-05-07T10:22:05+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001144s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001943s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.003886s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000352s ]
+
+[ 2016-05-07T10:22:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001936s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006807s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000412s ]
+
+[ 2016-05-07T10:23:00+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000987s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001599s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006415s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000428s ]
+
+[ 2016-05-07T10:23:08+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001192s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001893s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004054s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000344s ]
+
+[ 2016-05-07T10:23:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001514s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005842s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000418s ]
+
+[ 2016-05-07T10:23:23+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001858s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005824s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000876s ]
+
+[ 2016-05-07T10:23:24+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001993s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004924s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000372s ]
+
+[ 2016-05-07T10:23:25+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001216s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001903s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005978s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000408s ]
+
+[ 2016-05-07T10:26:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002315s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004920s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000369s ]
+
+[ 2016-05-07T10:29:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002211s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005537s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000435s ]
+
+[ 2016-05-07T10:30:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001632s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006434s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000435s ]
+
+[ 2016-05-07T10:31:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002023s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005722s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000653s ]
+
+[ 2016-05-07T10:31:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000935s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001626s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005342s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000360s ]
+
+[ 2016-05-07T10:33:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001787s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002995s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007494s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000458s ]
+
+[ 2016-05-07T10:33:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002079s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004840s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000355s ]
+
+[ 2016-05-07T10:33:15+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001105s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002049s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005583s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000371s ]
+
+[ 2016-05-07T10:33:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001653s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005235s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000362s ]
+
+[ 2016-05-07T10:34:43+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002572s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005728s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000787s ]
+
+[ 2016-05-07T10:34:52+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001564s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005012s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000353s ]
+
+[ 2016-05-07T10:34:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001052s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001769s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005207s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000541s ]
+
+[ 2016-05-07T10:35:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001148s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001899s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006892s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000484s ]
+
+[ 2016-05-07T10:36:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001093s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001817s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005583s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000450s ]
+
+[ 2016-05-07T10:37:18+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001068s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001773s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005594s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000490s ]
+
+[ 2016-05-07T10:37:26+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002321s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008839s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000445s ]
+
+[ 2016-05-07T10:37:47+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000926s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001521s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007416s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000541s ]
+
+[ 2016-05-07T10:37:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001308s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004288s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000346s ]
+
+[ 2016-05-07T10:38:17+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002468s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006739s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000482s ]
+
+[ 2016-05-07T10:38:26+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001706s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004250s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000490s ]
+
+[ 2016-05-07T10:38:39+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001269s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004533s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000385s ]
+
+[ 2016-05-07T10:38:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001709s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004701s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000338s ]
+
+[ 2016-05-07T10:38:43+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001996s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005321s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000390s ]
+
+[ 2016-05-07T10:38:54+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001222s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001804s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004279s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000383s ]
+
+[ 2016-05-07T10:43:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007270s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000483s ]
+
+[ 2016-05-07T10:43:24+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001668s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006068s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000452s ]
+
+[ 2016-05-07T10:43:26+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001207s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001913s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005148s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000366s ]
+
+[ 2016-05-07T10:43:30+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002740s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007879s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000573s ]
+
+[ 2016-05-07T10:43:38+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002532s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006116s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000360s ]
+
+[ 2016-05-07T10:43:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002826s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006553s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.001340s ]
+
+[ 2016-05-07T10:44:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002096s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007044s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000708s ]
+
+[ 2016-05-07T10:45:28+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002069s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003566s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006296s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000733s ]
+
+[ 2016-05-07T10:45:31+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003621s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005980s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000488s ]
+
+[ 2016-05-07T10:45:33+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001795s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002900s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.009060s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000446s ]
+
+[ 2016-05-07T10:46:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001153s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001862s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005170s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000374s ]
+
+[ 2016-05-07T10:46:18+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000969s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001595s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005644s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000366s ]
+
+[ 2016-05-07T10:46:38+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001045s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001683s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005587s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000427s ]
+
+[ 2016-05-07T10:49:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000970s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001564s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006433s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000361s ]
+
+[ 2016-05-07T10:50:08+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001178s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001875s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004974s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000381s ]
+
+[ 2016-05-07T10:50:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001648s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004395s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000348s ]
+
+[ 2016-05-07T10:50:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001891s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005957s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000378s ]
+
+[ 2016-05-07T10:50:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000687s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005574s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000376s ]
+
+[ 2016-05-07T10:50:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004822s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000447s ]
+
+[ 2016-05-07T10:50:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001125s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004795s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000356s ]
+
+[ 2016-05-07T10:50:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001480s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004201s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000317s ]
+
+[ 2016-05-07T10:50:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000944s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001577s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005924s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000396s ]
+
+[ 2016-05-07T10:50:59+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001115s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004226s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000318s ]
+
+[ 2016-05-07T10:51:00+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000891s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001350s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005077s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000330s ]
+
+[ 2016-05-07T10:51:04+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001634s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004978s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000354s ]
+
+[ 2016-05-07T10:51:05+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001510s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004532s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000318s ]
+
+[ 2016-05-07T10:51:06+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000827s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001350s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005315s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000359s ]
+
+[ 2016-05-07T10:51:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001128s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006110s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000370s ]
+
+[ 2016-05-07T10:51:11+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000862s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001337s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005651s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000369s ]
+
+[ 2016-05-07T10:51:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001089s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001728s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005334s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000336s ]
+
+[ 2016-05-07T10:51:13+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001427s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006272s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000368s ]
+
+[ 2016-05-07T10:51:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001689s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006136s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000416s ]
+
+[ 2016-05-07T10:51:18+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001128s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004532s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000379s ]
+
+[ 2016-05-07T10:51:19+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001498s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004583s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000369s ]
+
+[ 2016-05-07T10:51:39+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001104s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001888s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005790s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000370s ]
+
+[ 2016-05-07T10:51:40+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001115s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005120s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000380s ]
+
+[ 2016-05-07T10:51:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001359s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004738s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000351s ]
+
+[ 2016-05-07T10:51:45+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001115s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001824s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004404s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000344s ]
+
+[ 2016-05-07T10:51:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000709s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001177s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005898s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000364s ]
+
+[ 2016-05-07T10:51:51+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001672s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005587s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000335s ]
+
+[ 2016-05-07T10:51:52+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001775s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004891s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000324s ]
+
+[ 2016-05-07T10:51:54+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001384s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004652s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000345s ]
+
+[ 2016-05-07T10:51:54+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001379s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005205s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000343s ]
+
+[ 2016-05-07T10:51:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002264s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004261s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000322s ]
+
+[ 2016-05-07T10:52:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001377s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005642s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000351s ]
+
+[ 2016-05-07T10:52:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001146s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001887s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004904s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000395s ]
+
+[ 2016-05-07T10:52:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000983s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001633s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005968s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000386s ]
+
+[ 2016-05-07T10:52:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003680s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006304s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000363s ]
+
+[ 2016-05-07T10:53:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001521s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006229s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000428s ]
+
+[ 2016-05-07T11:06:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/index.php
+ERR: 非法操作:index.php
+
+[ 2016-05-07T11:10:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000960s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001547s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004295s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000316s ]
+
+[ 2016-05-07T11:10:51+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000961s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001538s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005096s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000383s ]
+
+[ 2016-05-07T11:10:51+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001032s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001734s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004511s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000335s ]
+
+[ 2016-05-07T11:10:52+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001367s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004929s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000352s ]
+
+[ 2016-05-07T11:10:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000713s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001187s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004880s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000379s ]
+
+[ 2016-05-07T11:11:02+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001320s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006133s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000381s ]
+
+[ 2016-05-07T11:11:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000941s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001517s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004224s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000442s ]
+
+[ 2016-05-07T11:11:04+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001678s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006079s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000353s ]
+
+[ 2016-05-07T11:11:36+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002257s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005664s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000376s ]
+
+[ 2016-05-07T11:11:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001977s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005701s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000465s ]
+
+[ 2016-05-07T11:20:39+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001891s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004521s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000329s ]
+
+[ 2016-05-07T11:21:11+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001901s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005344s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000351s ]
+
+[ 2016-05-07T11:21:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000825s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001452s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004901s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000395s ]
+
+[ 2016-05-07T11:21:50+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002271s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005807s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000356s ]
+
+[ 2016-05-07T11:23:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001133s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006170s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000400s ]
+
+[ 2016-05-07T11:23:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000857s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001450s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004508s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000340s ]
+
+[ 2016-05-07T11:23:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000887s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001429s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006014s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000385s ]
+
+[ 2016-05-07T11:24:31+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002147s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004367s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000331s ]
+
+[ 2016-05-07T11:24:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001891s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005165s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000364s ]
+
+[ 2016-05-07T11:25:11+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001246s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004467s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000332s ]
+
+[ 2016-05-07T11:25:30+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001288s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006528s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000372s ]
+
+[ 2016-05-07T11:28:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002015s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006182s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000429s ]
+
+[ 2016-05-07T11:29:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001455s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005647s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000412s ]
+
+[ 2016-05-07T11:30:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001106s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005776s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000395s ]
+
+[ 2016-05-07T11:36:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001071s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001737s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005669s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000372s ]
+
+[ 2016-05-07T11:37:35+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000975s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001628s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005388s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000423s ]
+
+[ 2016-05-07T11:39:38+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002122s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007920s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000711s ]
+
+[ 2016-05-07T11:40:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001722s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005113s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000435s ]
+
+[ 2016-05-07T11:41:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002157s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003720s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006288s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000906s ]
+
+[ 2016-05-07T11:42:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001738s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006673s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000425s ]
+
+[ 2016-05-07T11:42:43+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002191s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003187s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006234s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000375s ]
+
+[ 2016-05-07T11:42:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004063s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007699s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000464s ]
+
+[ 2016-05-07T11:43:21+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002522s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007480s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000458s ]
+
+[ 2016-05-07T11:43:33+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001713s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002513s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006362s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.001270s ]
+
+[ 2016-05-07T11:43:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002745s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005651s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000536s ]
+
+[ 2016-05-07T11:44:08+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003666s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006677s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000475s ]
+
+[ 2016-05-07T11:44:23+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003355s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008114s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000488s ]
+
+[ 2016-05-07T11:44:44+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002649s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007753s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000556s ]
+
+[ 2016-05-07T11:45:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002620s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005716s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 1  [ RunTime:0.000365s ]
+
+[ 2016-05-07T11:46:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002595s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005946s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000374s ]
+
+[ 2016-05-07T11:49:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003452s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004995s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000357s ]
+
+[ 2016-05-07T11:51:52+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000954s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001449s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004913s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000371s ]
+
+[ 2016-05-07T11:51:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001836s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004792s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 3  [ RunTime:0.000431s ]
+
+[ 2016-05-07T11:51:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001951s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004239s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000323s ]
+
+[ 2016-05-07T11:54:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002291s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008663s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000420s ]
+
+[ 2016-05-07T11:56:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001319s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005092s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000386s ]
+
+[ 2016-05-07T11:58:51+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001767s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006401s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000378s ]
+
+[ 2016-05-07T12:00:46+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001677s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003248s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.010536s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000476s ]
+
+[ 2016-05-07T12:01:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001911s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006084s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000384s ]
+
+[ 2016-05-07T12:01:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/Modify/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002181s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005457s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2  [ RunTime:0.000385s ]
+
+[ 2016-05-07T12:03:13+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/GoodsList/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001827s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005909s ]
+SQL: DELETE FROM `taoci_type` WHERE `id` = '12' [ RunTime:0.031166s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005426s ]
+SQL: DELETE FROM `taoci_goods` WHERE `id` = '1' [ RunTime:0.093993s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001453s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001520s ]
+
+[ 2016-05-07T12:03:34+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/GoodsList/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000913s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001363s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004300s ]
+SQL: DELETE FROM `taoci_type` WHERE `id` = '15' [ RunTime:0.000296s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006222s ]
+SQL: DELETE FROM `taoci_goods` WHERE `id` = '4' [ RunTime:0.057148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001235s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001292s ]
+
+[ 2016-05-07T12:03:40+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/GoodsList/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001356s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004904s ]
+SQL: DELETE FROM `taoci_type` WHERE `id` = '15' [ RunTime:0.000276s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005283s ]
+SQL: DELETE FROM `taoci_goods` WHERE `id` = '4' [ RunTime:0.000244s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001246s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001308s ]
+
+[ 2016-05-07T12:04:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/GoodsList/delete.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001100s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004993s ]
+SQL: DELETE FROM `taoci_type` WHERE `id` = '22' [ RunTime:0.073035s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.004407s ]
+SQL: DELETE FROM `taoci_goods` WHERE `id` = '11' [ RunTime:0.050520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001353s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001421s ]
+
+[ 2016-05-07T12:04:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001434s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006810s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005690s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 10 LIMIT 1   [ RunTime:0.000462s ]
+SQL: DELETE FROM `taoci_type` WHERE ( id=10 ) [ RunTime:0.156351s ]
+SQL: DELETE FROM `taoci_goods` WHERE ( tid=10 ) [ RunTime:0.000301s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001233s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001301s ]
+
+[ 2016-05-07T12:04:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001594s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007846s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005716s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 9 LIMIT 1   [ RunTime:0.001419s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001636s ]
+
+[ 2016-05-07T12:04:57+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002875s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004847s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006837s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 9 LIMIT 1   [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002487s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002650s ]
+
+[ 2016-05-07T12:05:02+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002014s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004456s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.007919s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 14 LIMIT 1   [ RunTime:0.000362s ]
+SQL: DELETE FROM `taoci_type` WHERE ( id=14 ) [ RunTime:0.070510s ]
+SQL: DELETE FROM `taoci_goods` WHERE ( tid=14 ) [ RunTime:0.000252s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001042s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001093s ]
+
+[ 2016-05-07T12:05:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001179s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002271s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007766s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006781s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2 LIMIT 1   [ RunTime:0.000396s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001244s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001307s ]
+
+[ 2016-05-07T12:06:04+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001010s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001641s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005058s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006601s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 2 LIMIT 1   [ RunTime:0.000358s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001305s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001372s ]
+
+[ 2016-05-07T12:06:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001616s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002372s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007046s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.006878s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 9 LIMIT 1   [ RunTime:0.000430s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003395s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003545s ]
+
+[ 2016-05-07T12:06:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001009s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001634s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004947s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005318s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 9 LIMIT 1   [ RunTime:0.000654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001268s ]
+
+[ 2016-05-07T12:06:14+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001997s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003013s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005938s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005721s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 9 LIMIT 1   [ RunTime:0.000483s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001339s ]
+
+[ 2016-05-07T12:06:18+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/del
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001668s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006195s ]
+SQL: DESCRIBE taoci_goods [ RunTime:0.005212s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 7 LIMIT 1   [ RunTime:0.000345s ]
+SQL: DELETE FROM `taoci_type` WHERE ( id=7 ) [ RunTime:0.094186s ]
+SQL: DELETE FROM `taoci_goods` WHERE ( tid=7 ) [ RunTime:0.000261s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001374s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001442s ]
+
+[ 2016-05-07T14:17:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002118s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004241s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000327s ]
+
+[ 2016-05-07T14:19:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002043s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005437s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000354s ]
+
+[ 2016-05-07T14:19:22+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/+AddType/insert+.html
+ERR: 无法加载控制器:+AddType
+
+[ 2016-05-07T14:19:41+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000950s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001709s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005256s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000405s ]
+
+[ 2016-05-07T14:20:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001789s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005417s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000398s ]
+
+[ 2016-05-07T14:21:23+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003715s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005293s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000391s ]
+
+[ 2016-05-07T14:21:25+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/+AddType/insert+.html
+ERR: 无法加载控制器:+AddType
+
+[ 2016-05-07T14:22:47+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001204s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001917s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004760s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000325s ]
+
+[ 2016-05-07T14:22:53+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001805s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005233s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000361s ]
+
+[ 2016-05-07T14:22:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002325s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006308s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000345s ]
+
+[ 2016-05-07T14:23:09+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000888s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001511s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004857s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000350s ]
+
+[ 2016-05-07T14:23:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000941s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001906s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005213s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000379s ]
+
+[ 2016-05-07T14:23:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002401s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005291s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000329s ]
+
+[ 2016-05-07T14:25:08+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002121s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006204s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000335s ]
+
+[ 2016-05-07T14:25:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/+AddType/insert+.html
+ERR: 无法加载控制器:+AddType
+
+[ 2016-05-07T14:25:35+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002690s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004895s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000359s ]
+
+[ 2016-05-07T14:25:40+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000694s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001124s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004753s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000358s ]
+
+[ 2016-05-07T14:26:00+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001348s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005525s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000372s ]
+
+[ 2016-05-07T20:17:55+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002034s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007429s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000765s ]
+
+[ 2016-05-07T20:18:01+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002008s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004910s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000374s ]
+
+[ 2016-05-07T20:18:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002750s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005302s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000370s ]
+
+[ 2016-05-07T20:18:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004742s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006164s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000354s ]
+
+[ 2016-05-07T20:18:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002493s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004304s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000440s ]
+
+[ 2016-05-07T20:18:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001806s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007513s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000433s ]
+
+[ 2016-05-07T20:38:03+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000945s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001804s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005772s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000416s ]
+
+[ 2016-05-07T20:38:32+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001785s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002989s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006913s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000362s ]
+
+[ 2016-05-07T20:42:29+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001870s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006010s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000478s ]
+
+[ 2016-05-07T21:37:17+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002547s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004703s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000338s ]
+
+[ 2016-05-07T21:43:10+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000958s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001563s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005593s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000458s ]
+
+[ 2016-05-07T21:46:21+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001885s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.004665s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000334s ]
+
+[ 2016-05-07T21:49:36+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002506s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008253s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000396s ]
+
+[ 2016-05-07T21:50:11+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001934s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005743s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000353s ]
+
+[ 2016-05-07T21:50:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002053s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007628s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=9 ) LIMIT 1   [ RunTime:0.000375s ]
+
+[ 2016-05-07T21:51:07+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001931s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002614s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005917s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000371s ]
+
+[ 2016-05-07T21:51:16+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001003s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001747s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006633s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000420s ]
+
+[ 2016-05-07T21:51:42+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002773s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006045s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000373s ]
+
+[ 2016-05-07T21:51:56+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001977s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006305s ]
+SQL: SELECT * FROM `taoci_type` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000380s ]
+
+[ 2016-05-07T21:58:27+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001072s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001972s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008881s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000861s ]
+
+[ 2016-05-07T22:49:58+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002090s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005148s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000420s ]
+
+[ 2016-05-07T22:50:48+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002634s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006190s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.003300s ]
+
+[ 2016-05-07T23:16:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002620s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006713s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000390s ]
+
+[ 2016-05-07T23:17:13+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001223s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002454s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007057s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000436s ]
+
+[ 2016-05-07T23:17:47+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002027s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007740s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000479s ]
+
+[ 2016-05-07T23:18:18+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001051s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001722s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006775s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000418s ]
+
+[ 2016-05-07T23:18:49+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003110s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007599s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000333s ]
+
+[ 2016-05-07T23:19:15+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001477s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002445s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007440s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000436s ]
+
+[ 2016-05-07T23:21:13+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003368s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005044s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000399s ]
+
+[ 2016-05-07T23:21:15+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001191s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001842s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006198s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000630s ]
+
+[ 2016-05-07T23:23:12+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000814s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.008764s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000419s ]
+
+[ 2016-05-07T23:23:33+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001813s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007418s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000604s ]
+
+[ 2016-05-07T23:23:35+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004450s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005918s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000363s ]
+
+[ 2016-05-07T23:25:24+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002050s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006693s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000435s ]
+
+[ 2016-05-07T23:25:26+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002055s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.007622s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000379s ]
+
+[ 2016-05-07T23:26:37+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002071s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006933s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000496s ]
+
+[ 2016-05-07T23:26:39+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002716s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004361s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.006866s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 0  [ RunTime:0.000425s ]
+

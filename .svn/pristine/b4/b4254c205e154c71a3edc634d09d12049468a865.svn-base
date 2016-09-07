@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘瓷网注册</title>
+	<link href="__PUBLIC__/Home/css/homestyle.css" rel="stylesheet">
+</head>
+<body>
+	<script src="__PUBLIC__/Home/js/jquery-1.7.1.js"></script>
+
+<script src="__PUBLIC__/Home/js/layer.min.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+    var _view = {
+        imgerr:'<img src="/Images/error_ico.gif" />',
+        UserName: $(),
+        PassWord: $(),
+        PassWord2: $(),
+        //
+        ShowName: $(),
+        ucAreaId: $(),
+        Address: $(),
+        Tel: $(),
+        ValiCode:$(),
+        sumbit: function () { }  //提交表单
+    };
+
+    $(function ()
+    {
+        GetCode(); //初始化验证码
+
+        _view.UserName = $("#UserName");
+        _view.PassWord = $("#PassWord");
+        _view.PassWord2 = $("#PassWord2");
+
+        _view.ShowName = $("#ShowName");
+        _view.ucAreaId = $("#ucAreaId");
+        _view.Address = $("#Address");
+        _view.Tel = $("#Tel");
+        _view.ValiCode = $("#ValiCode");
+    });
+
+    _view.sumbit = function ()
+    {
+        var username = $.trim(_view.UserName.val());
+        var password = $.trim(_view.PassWord.val());
+        var password2 = $.trim(_view.PassWord2.val());
+        //
+        var showname = $.trim(_view.ShowName.val());
+        var ucareaId = _view.ucAreaId.val();
+        var address = $.trim(_view.Address.val());
+        var tel = $.trim(_view.Tel.val());
+        var valicode = $.trim(_view.ValiCode.val());
+
+        if (username == "")
+        {
+            layer.tips("用户名必填",_view.UserName);
+            _view.UserName.focus();
+        }
+        else if (password == "")
+        {
+            layer.tips("密码必填", _view.PassWord);
+            _view.PassWord.focus();
+        }
+        else if (password2 == "")
+        {
+            layer.tips("确认密码必填", _view.PassWord2);
+            _view.PassWord2.focus();
+        }
+        else if (password != password2)
+        {
+            layer.tips("两次密码不一致", _view.PassWord2);
+            _view.PassWord2.focus();
+
+        }
+        else if (showname == "")
+        {
+            layer.tips("用户名必填", _view.ShowName);
+            _view.ShowName.focus();
+        }
+        else if (ucareaId == "0")
+        {
+            layer.tips("所在地区必选", _view.ucAreaId);
+            _view.ucAreaId.focus();
+        }
+        else if (address == "")
+        {
+            layer.tips("详细地址必填", _view.Address);
+            _view.Address.focus();
+        }
+        else if (tel == "")
+        {
+            layer.tips("电话必填", _view.Tel);
+            _view.Tel.focus();
+        }
+        else if (valicode == "")
+        {
+            layer.tips("验证码必填", _view.ValiCode);
+            _view.ValiCode.focus();
+        }
+        else
+        {
+
+            var index = 0;
+
+            $.ajax({
+                url: "/Home/RegisterSumbit",
+                data: {
+                    UserName: username,
+                    PassWord: password,
+                    ShowName: showname,
+                    ucAreaId: ucareaId,
+                    Address: address,
+                    Tel: tel,
+                    ValidateCodeToken: $.cookie("ValidateCodeToken"),
+                    ValiCode: valicode
+                },
+                dataType: "json",
+                type: "post",
+                cache: false,
+                beforeSend: function () { index = layer.load(); },
+                complete: function () { layer.close(index); },
+                error: function () { alert("ajax错误"); },
+                success: function (r)
+                {
+                    if (r && r.success)
+                    {
+                        window.location.href = "/Home/Index";
+                    }
+                    else
+                    {
+
+                        if (r.data == 0)
+                        {
+                            layer.alert("验证码不正确", { icon: 0 });
+                            GetCode();
+                            _view.ValiCode.focus();
+                        }
+                        if (r.data == 2)
+                        {
+                            layer.tips(r.msg, _view.UserName);
+                            _view.UserName.focus();
+                        }
+                        else
+                        {
+                            layer.alert(r.msg, { icon: 0 });
+                        }
+                    }
+
+                }
+            });
+        }
+
+    };
+
+
+
+    function GetCode()
+    {
+        //注意后面一定要加随机数，这样<img>才能更新为新的验证码
+        $("#validateImg").attr("src", "__PUBLIC__/Home/images/GetValidateCode?token=" + $.cookie("ValidateCodeToken") + "&cache=" + (new Date()).valueOf());
+    }
+</script>
+
+
+
+
+<div style="background:#e4e4e4; padding-bottom:10px;">
+    
+<!--头部代码开始-->
+<div class="l_zc1"> 
+<div class="l_zcz"> <img src="__PUBLIC__/Home/images/zclogo.png" style="margin-top:10px;"> </div>
+</div>
+<!--中间代码开始-->
+<div class="l_zcm"> 
+<div class="l_zcdh"> 帐号信息 <span> (注：带<font color="#FF0000">*</font>号的为必填项)</span></div>
+<form action="{:U('Registr/insert')}" method="post">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:20px;">
+    <tbody><tr class="fl_ys01">
+      <td class="fl_text"><font color="#FF0000">*</font> 用&nbsp;&nbsp;户&nbsp;&nbsp;名：</td>
+      <td>
+          <input class="fl_bd" id="UserName" name="UserName" type="text" value="">
+      </td>
+        
+    </tr>
+    <tr class="fl_ys02">
+      <td class="fl_text"><font color="#FF0000">*</font> 登录密码：</td>
+      <td style="text-align:left; text-indent:10px;">
+          <input class="fl_bd" id="PassWord" name="PassWord" type="password">
+           支持中英文、数字</td>
+    </tr>
+    
+    <tr class="fl_ys02">
+      <td class="fl_text"><font color="#FF0000">*</font> 确认密码：</td>
+      <td style="text-align:left; text-indent:10px;">
+            <input class="fl_bd" id="PassWord2" name="PassWord2" type="password"> 密码长度6~32位</td>
+    </tr>
+
+  </tbody></table>
+
+<div class="l_zcdh"> 联系方式</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:20px;margin-left: 40px;">
+    <tbody><tr class="fl_ys01">
+      <td class="fl_text"> <font color="#FF0000">*</font>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</td>
+      <td>
+          <input class="fl_bd" id="ShowName" name="ShowName" type="text" value="">
+      </td>
+    </tr>
+    
+    <tr class="fl_ys02">
+      <td class="fl_text"> <font color="#FF0000">*</font>所在地区：</td>
+      <td style="text-align:left;">
+
+<div id="ucAddressSelectDiv">
+  <select name="provinceID" onchange="_ucAddressSelect.sel1()" class="l_dxk"><option value="0">-请选择省-</option></select>
+        <img name="provinceLoading" src="__PUBLIC__/Home/images/loading2.gif" style="width:15px; height:15px; display:none;">
+<select name="cityID" onchange="_ucAddressSelect.sel2()" style="margin-left:2px;margin-right:2px;" class="l_dxk"><option value="0">-请选择市-</option></select>
+<select id="ucAreaId" name="areaID" class="l_dxk"><option value="0">-请选择区-</option></select>  <!--这个给出Id值，为了tips能找找到这个dom ，以便进行提示-->
+        <img name="areaLoading" src="__PUBLIC__/Home/images/loading2.gif" style="width:15px; height:15px; display:none;">
+</div> 
+
+        <script type="text/javascript">
+            $(function ()
+            {
+                _ucAddressSelect.SelClass = "l_dxk";
+                _ucAddressSelect.Init();
+            });
+
+        </script>
+    </td></tr>
+    
+    <tr class="fl_ys01">
+      <td class="fl_text"> <font color="#FF0000">*</font>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</td>
+      <td>
+          <input class="fl_bd1" id="Address" name="Address" type="text" value="">
+      </td>
+    </tr>
+    <tr class="fl_ys02">
+      <td class="fl_text"> <font color="#FF0000">*</font>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</td>
+      <td style="text-align:left; text-indent:10px;">
+          <input class="fl_bd" id="Tel" name="Tel" type="text" value="">
+      </td>
+    </tr>
+    
+    <tr class="fl_ys02">
+      <td class="fl_text"><font color="#FF0000">*</font> 验&nbsp;&nbsp;证&nbsp;&nbsp;码：</td>
+      <td style="text-align:left; text-indent:10px;">
+          <input type="text" value=" " maxlength="" id="ValiCode" name="ValiCode" class="fl_bd"> 
+          <img id="validateImg" width="101" height="29" src="__PUBLIC__/Home/images/GetValidateCode"> <a href="javascript:;" onclick="GetCode()">换一个</a></td>
+    </tr>
+    <tr class="fl_ys02">
+      <td class="fl_text"> </td>
+      <td><input type="submit" value="提交" style="cursor:pointer" class="l_tjan" onclick="_view.sumbit()"> </td>
+    </tr>
+  </tbody>
+  </table>
+  </form>
+  
+</div>
+
+	<include file='Public/footer'/>
+</body>
+</html>

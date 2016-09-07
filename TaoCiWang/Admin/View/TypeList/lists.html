@@ -1,0 +1,115 @@
+<extend name="Public/base" />
+<block name="main">
+    <!-- 修改弹出框 -->
+    <div id="popDiv" class="mydiv" style="display:none;">
+      <a href="javascript:closeDiv()" class="close">关闭窗口</a>
+      <div class="innerdiv" style="background: #EEE;position:relative;margin-top: 55px;padding: 78px">
+        <form action="{:U('TypeList/update')}" method="post">
+          <input type="hidden" name="id" class="update">
+          <span class="name"></span>
+          <input name="name" class="textbox" placeholder="分类名称" type="text" required>
+          <input value="确定" class="group_btn" type="submit" id="button">
+          <a href="javascript:closeDiv()">
+          <input value="取消" class="group_btn" type="button">
+          </a>
+        </form>
+      </div>
+    </div>
+    <div id="bg" class="bg" style="display:none;"></div>
+    <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+
+    <h1>添加分类</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>分类列表</span>
+    <a href="{:U('AddType/add')}"><span style="color: #19a97b;float: right;margin-right: 20px">添加分类/商品</span></a>
+     <section style="margin-top:10px">
+        <table class="table" style="text-align: center;">
+           <tr>
+            <th>一级分类</th>
+            <th>二级分类</th>
+            <th>商品</th>
+            <th>操作</th>
+           </tr>
+           <volist name='tree' id='vo'>
+             <tr>
+                <td>{$vo.name}</td>
+                <td></td>
+                <td></td>
+                <td>
+                   <a href="javascript:showDiv()" data='{$vo.id}' class="modify">修改</a>
+                   <a href="" data='{$vo.id}' class="inner_btn">删除</a>
+                </td>
+             </tr>
+             <volist name="vo['subcat']" id='vo1'>
+               <tr>
+                 <td></td>
+                 <td>{$vo1.name}</td>
+                 <td></td>
+                 <td>
+                   <a href="javascript:showDiv()" data='{$vo1.id}' class="smo">修改</a>
+                   <a href="" data='{$vo1.id}' class="inner_btn">删除</a>
+                 </td>
+               </tr>
+               <volist name="vo1['subcat']" id='vo2'>
+                 <tr>
+                   <td></td>
+                   <td></td>
+                   <td>{$vo2.name}</td>
+                   <td>
+                     <a href="{:U('GoodsList/goodslist')}">查看</a>
+                     <a href="" data='{$vo2.id}' class="inner_btn">删除</a>
+                   </td>
+                 </tr>
+               </volist>
+             </volist>
+           </volist>
+        </table>
+       </section>
+       
+       <script>
+         $('.inner_btn').click(function(){
+            var value=$(this).attr('data');
+            $.post('del',{pid:value},function(msg){
+                if(msg=='no'){
+                  alert('不能删除');
+                }else{
+                  alert('删除成功');
+                }
+            })
+         })
+
+         $('.modify').click(function(){
+            var first=$(this).attr('data');
+            $('.update').val(first);
+            $.post('find',{id:first},function(msg){
+                $('.textbox').val(msg['name']);
+            })
+            $('.name').html('一级分类');
+          })
+
+         $('.smo').click(function(){
+            var secend=$(this).attr('data');
+            $('.update').val(secend);
+            var a=$('.update').val();
+            $.post('find',{id:secend},function(msg){
+                $('.textbox').val(msg['name']);
+            })
+           $('.name').html('二级分类');
+         })
+
+        function showDiv(){
+          document.getElementById('popDiv').style.display='block';
+          document.getElementById('popIframe').style.display='block';
+          document.getElementById('bg').style.display='block';
+        }
+        function closeDiv(){
+          document.getElementById('popDiv').style.display='none';
+          document.getElementById('bg').style.display='none';
+          document.getElementById('popIframe').style.display='none';
+        }
+       </script>
+</block>

@@ -1,0 +1,389 @@
+<extend name='Index/index' />
+<block name='main'>
+
+<!-- 添加编辑对话框 -->
+<!-- 新增收货地址 -->
+<div class="l_gwc1">
+    <div class="l_gwcr">
+        <table class="l_hdxx1" border="0" width="974">
+            <tbody>
+	            <tr>
+	                <td width="32%">1、我的购物车</td>
+	                <td style="color: #fff;" width="33%">2、填写并核对订单信息</td>
+	                <td width="35%">3、订单详情</td>
+	            </tr>
+        	</tbody>
+        </table>
+    </div>
+</div>
+
+<div class="y_order_infor">
+    <!--收件人信息-->
+    <div class="y_order_infor_tit">填写并核对订单信息</div>
+    <div class="y_order_infor_part1">
+        <div id="addressDiv" class="dzhij">
+            <notempty name='adressData'>
+                <div id='info'>
+                    <div class="y_titlemas">
+                        收货人信息
+                    </div>
+                    <volist name='adressData' id='avo'>
+                        <div class="y_dza">
+                            <if condition="$avo['status'] eq 1">
+                                <input name="status" checked="checked" class="rowAddress" type="radio" value='{$avo.id}'>
+                            <else />
+                                <input name="status" class="rowAddress" type="radio" value='{$avo.id}'>
+                            </if>
+                            <font class="fhei">
+                                姓名：{$avo.reciveName} &nbsp;&nbsp;&nbsp;&nbsp;
+                                电话: {$avo.recivePhone} &nbsp;&nbsp;&nbsp;&nbsp;
+                                收货点：{$avo.province}{$avo.city}{$avo.county}{$avo.more}
+                            </font>
+                            <a href="{:U('Person/modifyads')}" data="{$avo.id}" class="modify">修改</a>
+                            <a href="javascript:void(0)" data="{$avo.id}" class="delete">删除</a>
+                        </div>
+                    </volist>
+                </div>
+            </notempty>
+            <div class="y_dza2" id="addressAfter" style="float: left;">
+                <a href="javascript:void(0)" id='adress'><img src="__PUBLIC__/home/images/jia.gif">添加新收货人地址</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="y_order_infor_part1">
+        <div class="dzhij">
+            <div class="y_titlemas" style="float: left">商品信息</div>
+            <div class="y_dza2" id="addressAfter2" style="float: right; height: 35px; line-height: 35px; padding-top: 10px; padding-left: 5px;">
+                <a href="javascript:;" style="color: #196193;" id='goback'>返回修改购物车</a>
+            </div>
+
+            <div style="font-size: 12px; border-top: 1px solid #e6e6e6; margin-top: 20px;">
+
+	<!--表格模板-->
+<table id="temTable" style="display: none;">
+    <tbody><tr>
+        <td class="l_tdk">
+            <input name="Identifier" value="0" type="hidden">
+            <!--保存Identifier-->
+            <label name="rowNumber" for="rowCkbox_id" style="cursor: pointer;"></label>
+        </td>
+        <td class="l_tdk">
+            <a href="">
+                <img src="" height="80" width="80">
+            </a>
+        </td>
+        <td class="l_tdk">
+            <p class="l_aa"><a href="" name="GoodsName">GoodsName</a></p>
+            <p class="l_aaa"><a href="" name="GoodsInfo">商品信息</a></p>
+        </td>
+        <td class="l_tdk"><span class="l_lysw1" name="OldPrice">￥OldPrice</span>
+            <br>
+            ￥<span name="Price">Price</span></td>
+        <td class="l_tdk">
+            <div class="l_jj">
+                <ul>
+                    <li style="cursor: pointer; width: 24px;" name="dec">- </li>
+                    <li style="width: 50px;">
+                        <input style="width: 46px; height: 22px; border: none; text-align: center;" name="Quantity" type="text"></li>
+                    <li style="border-right: 0; cursor: pointer; width: 24px;" name="add">+ </li>
+                </ul>
+            </div>
+        </td>
+        <td class="l_tdk" width="10%"><span name="SkuQuantity">库存</span>件</td>
+        <td class="l_lysw" width="10%"><span name="RowSum">￥(m.Price * m.Quantity) </span></td>
+    </tr>
+</tbody></table>
+
+<!--表格开始-->
+<div class="l_lgww">
+    <table id="listTable" style="margin-top: 0px; font-size: 14px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <td style="background: #f3f3f3;" height="30" width="38">编号</td>
+                <td style="background: #f3f3f3;" height="30" width="10%">
+                    <label width="70" for="ckboxAll1" style="cursor: pointer;">商品图片</label></td>
+                <td style="background: #f3f3f3;" height="30" width="25%">商品信息</td>
+                <td style="background: #f3f3f3;" height="30" width="15%">单价（元）</td>
+                <td style="background: #f3f3f3;" height="30" width="15%">数量</td>
+                <td style="background: #f3f3f3;" height="30" width="10%">金额（元）</td>
+            </tr>
+        </thead>
+        <tbody>
+        <volist name='data' id='vo'>
+            <input type="hidden" value="{$vo.id}" class="gid">
+	        <tr class='goodsinfo'>
+		        <td class="l_tdk">
+		            <!--保存Identifier-->
+		            <label name="rowNumber" class="rowNumber" for="rowCkbox_id" style="cursor: pointer;"></label>
+		        </td>
+		        <td class="l_tdk">
+		            <a href="{:U('Detail/detail')}?id={$vo.id}">
+		                <img src="/xiangmu/TaoCiWang{$vo.photo}" height="80" width="80">
+		            </a>
+		        </td>
+		        <td class="l_tdk" >
+		            <p class="l_aa"><a href="" name="GoodsName" style="text-align: center;display: block;">{$vo.name}</a></p>
+		            <p class="l_aaa"><a href="" name="GoodsInfo"  style="text-align: center;display: block;">描述：{$vo.desc}</a></p>
+		        </td>
+		        <td class="l_tdk"><span class="l_lysw1" name="OldPrice">￥{$vo.price}</span>
+		            <br>
+		            ￥<span name="Price">{$vo.price}</span></td>
+		        <td class="l_tdk">{$vo.number}</td>
+		        <td class="l_lysw" width="10%"><span name="RowSum">￥<span class="total">{$vo.total}</span></span></td>
+		    </tr>
+		</volist>
+	    </tbody>
+    </table>
+</div>
+
+    <!--150819留言板块新家内容开始-->
+    <div style="width: 100%; margin: 0 auto; background: #f9f9f9; padding: 20px 0; clear: both; overflow: hidden;">
+        <div style="width: 500px; float: left; margin-left: 20px">
+            <font color="#b63576">给卖家留言：</font>
+            <input id="message" style="width: 400px; height: 30px; border: 1px solid #dcdcdc; text-indent: 5px;" type="text" name="message">
+        </div>
+        <div style="width: 500px; float: right;">
+            <font color="#b63576">优惠券：</font>
+
+            <select id="selCoupon" onchange="_ucShopCar.selCouponChange()" style="width: 120px; height: 30px; border: 1px solid #dcdcdc; font-family:microsoft yahei; font-size:12px;">
+                <option selected="selected" value="0">请选择</option>
+                <option value="1">优惠券</option>
+                <option value="2">兑换码</option>
+            </select>
+
+            <select id="selCouponItems" onchange="_ucShopCar.selCouponItemsChange()" style="width: 120px; height: 30px; border: 1px solid #dcdcdc; display: none; font-family:microsoft yahei; font-size:12px;">
+                <option selected="selected" value="0">-请选择-</option>
+                <!--从后台读取已经领取的优惠券 开始-->
+                
+                <!--从后台读取已经领取的优惠券 结束-->
+            </select>
+
+            <span id="spanRedeemCode" style="display: none;ont-family: microsoft yahei; font-size:12px;">
+                <input id="RedeemCode" placeholder="输入优惠券兑换码" style="width: 170px; height: 30px; border: 1px solid #dcdcdc; text-indent: 5px;" type="text">
+                <input onclick="_ucShopCar.RedeemCodeClick()" value="确定" style="cursor: pointer; width: 80px; height: 32px; text-align: center; line-height: 32px; border: none; background: #8D0049; color: #fff;" type="button">
+            </span>
+        </div>
+    </div>
+    <!--150819留言板块新家内容结束-->
+
+<div class="l_jsp">
+    <div class="l_jspl">
+        <div id="FeeNote" class="l_jspll" style="width: 340px; color: gray; font-size: 16px;">满199元包邮，普通邮件10元/件(套)</div>
+        <div class="l_jsplr" style="text-align: right; padding-right: 10px;">
+            已选商品<font class="l_sz" id="selectRowCount"></font>件
+            &nbsp;&nbsp;&nbsp; 
+            合计:商品<font id="CashSum" class="l_sz">￥<span id='total'></span></font>
+            +运费<font class="l_sz" id="FeeSum">￥<span id="yunfei">10.00</span></font>
+
+            <label id="sumRedeemCode" style="display: none">
+                -优惠<font class="l_sz" name="cash">￥0.00</font>
+            </label>
+            =<span id="TotalCash">￥<span class="last"></span></span>
+        </div>
+    </div>
+        <div class="l_jspr" style="cursor: pointer;" id="submit">提交</div>
+		</div>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	//返回购物车修改
+	$('#goback').click(function(){
+		history.go(-1);
+	})
+
+    //添加新地址
+	$('#adress').click(function(){
+        var num=0;
+        $('.y_dza').each(function(){
+            num++;
+        })
+        if(num>=5){
+            layer.open({
+                type: 1,
+                title:'淘瓷网',
+                time:3000,
+                area: ['300px', '150px'],
+                shadeClose: true, //点击遮罩关闭
+                content: '<div style="padding:20px;text-align:center;font-size:13px"><h3>最多添加5条地址</h3></div>'
+            });
+        }else{
+            layer.open({
+              type: 2,
+              title: '陶瓷网',
+              shadeClose: true,
+              shade: 0.3,
+              area: ['800px', '550px'],
+              content: '{:U("Adress/adress")}' //iframe的url
+            });
+            loaction.reload();
+        }
+	})
+
+    //显示收货地址
+    function info(){
+        $.ajax({
+            type:'POST',
+            url:"{:U('CheckInfo/adressinfo')}",
+            success:function(msg){
+                console.log(unicode(msg));
+            }
+        })
+    }
+    info();
+
+    //编号显示
+    var floor=0;
+    var zongji=0;
+    $('.goodsinfo').each(function(eq){
+        floor++;
+        $(this).children().find('.rowNumber').html(eq+1);
+    })
+    $('#selectRowCount').html(floor);
+
+    //显示应付总的钱
+    var total=0;
+    $('.total').each(function(){
+        total+=Number($(this).html());
+    })
+    $('#total').html(total);
+    //加上运费
+    if(total>=199){
+        $('#yunfei').html(0);
+        zongji=total;
+        $('.last').html(total);
+    }else{
+        var yunfei=Number($('#yunfei').html());
+        zongji=total+yunfei;
+        $('.last').html(zongji);
+    }
+
+    //提交订单
+    $('#submit').click(function(){
+        //商品ID
+        var gid='';
+        var boolern=false;
+        $('.gid').each(function(){
+            gid+=$(this).val()+'&';
+        })
+
+        //选中地址ID
+        var aid=$('.rowAddress').val();
+        if(typeof(aid) == "undefined"){
+            boolern=false;
+            layer.open({
+                type: 1,
+                title:'淘瓷网',
+                time:3000,
+                area: ['300px', '150px'],
+                shadeClose: true, //点击遮罩关闭
+                content: '<div style="padding:20px;text-align:center;font-size:13px"><h3>请填写地址</h3></div>'
+            });
+        }else{
+            $('.rowAddress').each(function(){
+                boolern1=$(this).is(':checked');
+                 if(boolern1){
+                    aid = $(this).val();
+                    boolern=true;
+
+                 }
+            })
+            if(boolern==false){
+                layer.open({
+                    type: 1,
+                    title:'淘瓷网',
+                    time:3000,
+                    area: ['300px', '150px'],
+                    shadeClose: true, //点击遮罩关闭
+                    content: '<div style="padding:20px;text-align:center;font-size:13px"><h3>请选择地址</h3></div>'
+                });
+            }
+        }
+        //运费
+        var luggage=Number($('#yunfei').html());
+        //商品件数
+        var number=floor;
+        //商品总价
+        var total=zongji;
+        //客户留言
+        var message=$('#message').val();
+        //发送数据
+        if(boolern){
+            $.ajax({
+                type:'POST',
+                url:"{:U('Order/insert')}",
+                data:{"gid":gid,"aid":aid,"number":number,"total":total,"message":message,"luggage":luggage},
+                success:function(msg){
+                    if(msg=='ok'){
+                       window.location.href="{:U('Order/order')}";
+                    }else{
+                        layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">提交失败</div>'
+                        });
+                    }
+                }
+            })
+        }
+    })
+
+    //删除地址
+    $('.delete').click(function(){
+        var bool=$(this).parent().find('.rowAddress').is(':checked');
+        if(bool){
+            layer.open({
+                type: 1,
+                title:'淘瓷网',
+                time:3000,
+                area: ['300px', '150px'],
+                shadeClose: true, //点击遮罩关闭
+                content: '<div style="padding:20px;text-align:center;font-size:13px">默认地址不能删除</div>'
+            });
+        }else{
+            var id=$(this).attr('data');
+            $.ajax({
+                type:"POST",
+                url:"{:U('CheckInfo/delete')}",
+                data:"id="+id,
+                success:function(msg){
+                    if(msg=='ok'){
+                        layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除成功</div>'
+                        });
+                        location.reload();
+                    }else{
+                        layer.open({
+                            type: 1,
+                            title:'淘瓷网',
+                            time:3000,
+                            area: ['300px', '150px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: '<div style="padding:20px;text-align:center;font-size:13px">删除失败</div>'
+                        });
+                    }
+                }
+            })
+        }
+    })
+        
+
+    //修改地址
+    function mod(id){
+
+    }
+</script>
+
+</block>

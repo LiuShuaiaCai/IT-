@@ -1,0 +1,154 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>淘瓷网_首页</title>
+	
+	 <link rel="shortcut icon" type="image/x-icon" href="http://www.redroses1960.com../images/favicon.ico">
+    <link href="/xiangmu/TaoCiWang1/Public/Home/css/homestyle.css" rel="stylesheet">
+
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery-1.7.1.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery.superslide.2.1.1.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/pptBox.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/layer.min.js"></script>
+    <link rel="stylesheet" href="/xiangmu/TaoCiWang1/Public/Home/css/layer.css" id="layui_layer_skinlayercss">
+
+
+<!--QQ第三方登录-->
+    
+<!--QQ第三方登录 结束-->
+<!--新浪微博 开始-->
+<script src="/xiangmu/TaoCiWang1/Public/Home/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script charset="UTF-8" src="/xiangmu/TaoCiWang1/Public/Home/images/query"></script>
+<!--新浪微博 结束-->
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $('.z_weixin2').each(function () {
+            var distance = 10;
+            var time = 250;
+            var hideDelay = 500;
+            var hideDelayTimer = null;
+            var beingShown = false;
+            var shown = false;
+            var trigger = $('.trigger2', this);
+            var info = $('.z_ewm2', this).css('opacity', 0);
+            $([trigger.get(0), info.get(0)]).mouseover(function () {
+                if (hideDelayTimer) clearTimeout(hideDelayTimer);
+                if (beingShown || shown) {
+                    // don't trigger the animation again
+                    return;
+                } else {
+                    // reset position of info box
+                    beingShown = true;
+
+                    info.css({
+                        top: 39,
+                        left: -25,
+                        display: 'block'
+                    }).animate({
+                        top: '-=' + distance + 'px',
+                        opacity: 1
+                    }, time, 'swing', function () {
+                        beingShown = false;
+                        shown = true;
+                    });
+                }
+
+                return false;
+            }).mouseout(function () {
+                if (hideDelayTimer) clearTimeout(hideDelayTimer);
+                hideDelayTimer = setTimeout(function () {
+                    hideDelayTimer = null;
+                    info.animate({
+                        top: '-=' + distance + 'px',
+                        opacity: 0
+                    }, time, 'swing', function () {
+                        shown = false;
+                        info.css('display', 'none');
+                    });
+
+                }, hideDelay);
+
+                return false;
+            });
+        });
+    });
+
+    var _master = {
+        Logout:function(){},  //退出登录
+        //
+        SearchBy:"",  
+        SearchText:"",  //搜索文本
+        masterSearText:$(),
+        searchClick: function () { }
+    };
+
+    _master.Logout = function ()
+    {
+        /*
+        if (QC.Login.check())
+        {
+            QC.Login.signOut();  //退出QQ登录
+        }
+        if (WB2.checkLogin())
+        {
+            WB2.logout();  //退出新浪微博
+        }
+        */
+        window.location.href="/Home/Logout";
+    };
+
+    $(function ()
+    {
+        //登录信息
+        _master.SearTextBox = $("#masterSearText");
+        //如果是
+        if (_master.SearchBy == "Master")
+        {
+            _master.SearTextBox.val(_master.SearchText);
+            _master.SearTextBox.focus();
+            _master.SearTextBox.select();
+        }
+
+        _master.SearTextBox.keydown(function ()
+        {
+            document.onkeydown = function mykeyDown(e)
+            {
+                e = e || event;
+                if (e.keyCode == 13) { _master.searchClick(); }
+                return;
+            }
+        });
+
+    });
+    _master.searchClick = function ()
+    {
+        var txt = $.trim(_master.SearTextBox.val());
+        if (txt == "")
+        {
+
+            layer.tips("搜索关键字不能为空", _master.SearTextBox);
+            _master.SearTextBox.focus();
+        }
+        else
+        {
+            window.location.href = "/Home/GoodsList?SearchBy=Master&keywords=" + txt;
+        }
+    };
+</script>
+</head>
+<body>
+	<!-- 引入头部 -->
+	<?php echo W('Public/header');?>;
+
+	<!-- 主题部分 -->
+	
+
+
+	<!-- 引入尾部 -->
+	<?php echo W('Public/footer');?>;
+</body>
+</html>

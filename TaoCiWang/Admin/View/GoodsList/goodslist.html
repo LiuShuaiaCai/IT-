@@ -1,0 +1,74 @@
+<extend name="Public/base" />
+<block name="main">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/page.css">
+    <h1>商品列表</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>商品列表</span>
+	  <section>
+      <div class="page_title">
+       <h2 class="fl">商品详情</h2>
+       <form action="" method="get" style="float: right;">
+          <input type="text" name='name' placeholder="商品名称" style="border: 1px solid #19a97b;border-radius: 10px;height: 15px;line-height: 20px;padding: 5px">
+          <input type="submit" value='搜索' style="height: 25px;line-height: 25px;color: #666;background: #FFF;border: none">
+       </form>
+      </div>
+      <table class="table">
+       <tr>
+        <th style="width:40px;text-align: center;">编号</th>
+        <th>所属父类</th>
+        <th>名称</th>
+        <th>描述</th>
+        <th>价格</th>
+        <th>折扣</th>
+        <th>状态</th>
+        <th>数量</th>
+        <th>图片</th>
+        <th>注册时间</th>
+        <th>操作</th>
+       </tr>
+       <volist name='data' id='vo'>
+       <tr>
+        <td>{$vo.id}</td>
+        <td>{$vo.pname}</td>
+        <td>{$vo.name}</td>
+        <td>{$vo.desc}</td>
+        <td>{$vo.price}</td>
+        <td>{$vo.discount}</td>
+        <td>{$vo.status}</td>
+        <td>{$vo.num}</td>
+        <td>{$vo.photo}</td>
+        <td>{$vo.addtime}</td>
+        <td>
+         <a href="{:U('Modify/modify')}?id={$vo.id}" class="modify">修改</a>
+         <a href="javascript:;" tid='{$vo.tid}' id='{$vo.id}' class="inner_btn">删除</a>
+        </td>
+       </tr>
+       </volist>
+      </table>
+      <div class="pagination">
+      　　{$show}
+      </div>
+     </section>
+      <script type="text/javascript">
+        $('.inner_btn').click(function(){
+          var tid=$(this).attr('tid');
+          var id=$(this).attr('id');
+          $.ajax({
+            type:'post',
+            url:"{:U('GoodsList/delete')}",
+            data:"tid="+tid+"&"+"id="+id,
+            success:function(msg){
+              if(msg=='yes'){
+                location.reload();
+                alert('删除成功');
+              }else{
+                alert('删除失败');
+              }
+            }
+          })
+        })
+      </script>
+</block>

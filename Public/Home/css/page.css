@@ -1,0 +1,20 @@
+.prev,.num,.current,.next{
+	background:#BA3378;
+	border:1px #BA3378 solid;
+	color:white;
+	padding:5px 8px;
+	display:inline-block;
+	cursor:pointer;
+}
+.current{
+	color: #333;
+	margin:0 5px;
+}
+.pagination a{
+	margin:0 5px;
+}
+.pagimargin:0 5px;ng a:hover{
+	background:#11a274;
+	border:1px #0e8f61 solid;
+	color:#333;
+}

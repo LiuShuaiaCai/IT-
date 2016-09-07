@@ -1,0 +1,108 @@
+<extend name="Public/base" />
+<block name="main">
+    <h1>添加分类</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>添加分类/商品</span>
+	 <section>
+      <!-- 一级分类 -->
+      <form action="{:U('AddType/insert')}" method="post"> 
+        <h2><strong style="color:grey;">添加一级分类</strong></h2> 
+        <input type="hidden" name='pid' value="0">
+        <span>一级分类：</span>
+        <input name='name' class="textbox" placeholder="分类名称" type="text" required> 
+        <input value="添加" class="group_btn" type="submit" id='button'>
+      </form>
+      <hr />
+
+      <!-- 二级分类 -->
+      <form action="{:U('AddType/insert')}" method="post"> 
+        <h2><strong style="color:grey;">添加级二分类</strong></h2> 
+        <span>一级分类：</span>
+        <select name="pid" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <volist name='first' id='vo' key='k'>
+            <option value="{$vo.id}">{$vo.name}</option>
+          </volist>
+        </select>
+        <br />
+        <span>二级分类：</span>
+        <!-- <input type="hidden" name='pid' value="{}"> -->
+        <input name='name' class="textbox" placeholder="分类名称" type="text" required> 
+        <input value="添加" class="group_btn" type="submit">
+        </form>
+        <hr />
+
+        <!-- 添加商品 -->
+        <form action="{:U('AddType/goods')}" method="post" enctype="multipart/form-data"> 
+        <h2><strong style="color:grey;">添加商品</strong></h2> 
+        <span>一级分类：</span>
+        <select id="first" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <volist name='first' id='vo' key='k'>
+            <option value="{$vo.id}">{$vo.name}</option>
+          </volist>
+        </select>
+        <br />
+        <span>二级分类：</span>
+        <select name="pid" id="secend" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+        </select>
+        <br />
+        <span>商品名称：</span><input name='name' class="textbox" placeholder="商品名称" type="text" required><br>
+        <span>商品价格：</span><input name='price' class="textbox" placeholder="商品价格" type="text" required><br>
+        <span>商品描述：</span><input name='desc' class="textbox" placeholder="商品描述" type="text" required><br>
+        <span>商品打折：</span><input name='discount' class="textbox" placeholder="商品打折" type="text" required><br>
+        <span>商品状态：</span>
+        <select name="status" id="secend" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="0">正常商品</option>
+          <option value="1">新品首发</option>
+          <option value="2">特价商品</option>
+          <option value="3">热卖商品</option>
+          <option value="4">推荐产品</option>
+        </select>
+        <br />
+        <span>商品数量：</span><input name='num' class="textbox" placeholder="商品数量" type="text" required><br>
+        <span>商品图片：</span><input name='photo' class="textbox"  type="file"><br>
+        <span>商品预览图：</span>
+        <!-- 加载编辑器的容器 -->
+        <script id="container" name="maxpic" type="text/plain"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.all.js"></script>
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var ue = UE.getEditor('container',{
+              toolbars: [
+                  ['fullscreen', 'source', 'undo', 'redo', 'simpleupload','insertimage']
+              ]
+            });
+        </script>
+
+        <input value="添加" class="group_btn" type="submit">
+      </form>
+     </section>
+      <!-- <script src="__PUBLIC__/Admin/js/jquery.js"></script> -->
+      <script type="text/javascript">
+      function demo(){
+         $pid=$('#first').val();
+          $.ajax({
+            type:"POST",
+            url:"find",
+            data:"pid="+$pid,
+            success:function(msg){
+              var str='';
+              for(var i in msg){
+                str+='<option value="'+msg[i]['id']+'">'+msg[i]['name']+'</option>';
+              }
+              // console.log(str);
+              $('#secend').html(str);
+            }
+          })
+        }
+        demo();
+        $('#first').change(function(){
+          demo();
+        })
+      </script>
+</block>

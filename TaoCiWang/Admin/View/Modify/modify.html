@@ -1,0 +1,110 @@
+<extend name="Public/base" />
+<block name="main">
+    <h1>添加分类</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>修改商品信息</span>
+	 <section>
+        <!-- 添加商品 -->
+        <form action="{:U('Modify/goods')}" method="post" enctype="multipart/form-data"> 
+        <input type="hidden" name='gid' value="{$data.id}">
+        <input type="hidden" name='aid' value="{$data.tid}">
+        <h2><strong style="color:grey;">添加商品</strong></h2> 
+        <span>一级分类：</span>
+        <select id="first" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="{$one.id}" selected id='selected'>{$one.name}</option>
+          <volist name='first' id='vo' key='k'>
+            <option value="{$vo.id}">{$vo.name}</option>
+          </volist>
+        </select>
+        <br />
+        <span>二级分类：</span>
+        <select name="pid" id="secend" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          
+           <option id='sec' value="{$sec.id}" selected>{$sec.name}</option>
+        </select>
+        <br />
+        <span>商品名称：</span><input name='name' class="textbox" placeholder="商品名称" type="text" value="{$data.name}" required><br>
+        <span>商品价格：</span><input name='price' class="textbox" placeholder="商品价格" type="text" value="{$data.price}" required><br>
+        <span>商品描述：</span><input name='desc' class="textbox" placeholder="商品描述" type="text" value="{$data.desc}" required><br>
+        <span>商品打折：</span><input name='discount' class="textbox" placeholder="商品打折" type="text" value="{$data.discount}" required><br>
+        <span>商品状态：</span>
+        <select name="status" id="status" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="{$data.status}" id='option'>
+            <switch name='data.status'>
+              <case value='0'>正常商品</case>
+              <case value='1'>新品首发</case>
+              <case value='2'>特价商品</case>
+              <case value='3'>热卖商品</case>
+              <case value='4'>推荐产品</case>
+            </switch>
+          </option>
+          
+          <option value="0">正常商品</option>
+          <option value="1">新品首发</option>
+          <option value="2">特价商品</option>
+          <option value="3">热卖商品</option>
+          <option value="4">推荐产品</option>
+        </select>
+        <br />
+        <span>商品数量：</span><input name='num' class="textbox" placeholder="商品数量" type="text" value="{$data.num}" required><br>
+        <span>商品图片：</span><input name='photo' class="textbox"  type="file" value="{$data.photo}"><br>
+        <span>商品预览图：</span>
+        <!-- 加载编辑器的容器 -->
+        <script id="container" name="maxpic" type="text/plain"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="__PUBLIC__/UEditor/ueditor.all.js"></script>
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var ue = UE.getEditor('container',{
+              toolbars: [
+                  ['fullscreen', 'source', 'undo', 'redo', 'simpleupload','insertimage']
+              ]
+            });
+        </script>
+
+        <input value="添加" class="group_btn" type="submit">
+      </form>
+     </section>
+      <!-- <script src="__PUBLIC__/Admin/js/jquery.js"></script> -->
+      <script type="text/javascript">
+
+      function demo(){
+         var pid=$('#first').val();
+          $.ajax({
+            type:"POST",
+            url:"find",
+            data:"pid="+pid,
+            success:function(msg){
+              var str='';
+              for(var i in msg){
+                str+='<option value="'+msg[i]['id']+'">'+msg[i]['name']+'</option>';
+              }
+              // console.log(str);
+              $('#secend').html(str);
+            }
+          })
+        }
+        // demo();
+        $('#first').change(function(){
+          $('#sec').css('display','none');
+          demo();
+        })
+
+        $('#first').click(function(){
+          $('#selected').css('display','none');
+        })
+        $('#secend').click(function(){
+          $('#sec').css('display','none');
+        })
+
+        $('#status').click(function(){
+          $('#option').css('display','none');
+        })
+
+      </script>
+</block>

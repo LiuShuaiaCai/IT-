@@ -1,0 +1,29 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+header('Content-type:text/html;charset=utf-8');
+class AddTypeController extends Controller {
+    public function add(){
+    	$this->display();
+    }
+
+    public function insert(){
+    	dump($_POST);
+    	//实例化type表
+    	$type=M('type');
+    	//创建数据对象
+    	$data=$type->create();
+    	//判断对象
+    	if($data){
+    		$insert=$type->add();
+    		echo $type->_sql();
+    		if($insert){
+    			$this->success('添加成功',U('TypeList/list'),1);
+    		}else{
+    			$this->error('添加失败');
+    		}
+    	}else{
+    		$type->getError();
+    	}
+    }
+}

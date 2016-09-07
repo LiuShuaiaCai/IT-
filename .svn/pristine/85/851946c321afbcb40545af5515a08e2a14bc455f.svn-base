@@ -1,0 +1,688 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>淘瓷网_首页</title>
+	
+	 <link rel="shortcut icon" type="image/x-icon" href="http://www.redroses1960.com../images/favicon.ico">
+    <link href="/xiangmu/TaoCiWang1/Public/Home/css/homestyle.css" rel="stylesheet">
+
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery-1.7.1.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery.superslide.2.1.1.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/pptBox.js"></script>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/layer.min.js"></script>
+    <link rel="stylesheet" href="/xiangmu/TaoCiWang1/Public/Home/css/layer.css" id="layui_layer_skinlayercss">
+
+
+<!--QQ第三方登录-->
+    
+<!--QQ第三方登录 结束-->
+<!--新浪微博 开始-->
+<script src="/xiangmu/TaoCiWang1/Public/Home/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script charset="UTF-8" src="/xiangmu/TaoCiWang1/Public/Home/images/query"></script>
+<!--新浪微博 结束-->
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $('.z_weixin2').each(function () {
+            var distance = 10;
+            var time = 250;
+            var hideDelay = 500;
+            var hideDelayTimer = null;
+            var beingShown = false;
+            var shown = false;
+            var trigger = $('.trigger2', this);
+            var info = $('.z_ewm2', this).css('opacity', 0);
+            $([trigger.get(0), info.get(0)]).mouseover(function () {
+                if (hideDelayTimer) clearTimeout(hideDelayTimer);
+                if (beingShown || shown) {
+                    // don't trigger the animation again
+                    return;
+                } else {
+                    // reset position of info box
+                    beingShown = true;
+
+                    info.css({
+                        top: 39,
+                        left: -25,
+                        display: 'block'
+                    }).animate({
+                        top: '-=' + distance + 'px',
+                        opacity: 1
+                    }, time, 'swing', function () {
+                        beingShown = false;
+                        shown = true;
+                    });
+                }
+
+                return false;
+            }).mouseout(function () {
+                if (hideDelayTimer) clearTimeout(hideDelayTimer);
+                hideDelayTimer = setTimeout(function () {
+                    hideDelayTimer = null;
+                    info.animate({
+                        top: '-=' + distance + 'px',
+                        opacity: 0
+                    }, time, 'swing', function () {
+                        shown = false;
+                        info.css('display', 'none');
+                    });
+
+                }, hideDelay);
+
+                return false;
+            });
+        });
+    });
+
+    var _master = {
+        Logout:function(){},  //退出登录
+        //
+        SearchBy:"",  
+        SearchText:"",  //搜索文本
+        masterSearText:$(),
+        searchClick: function () { }
+    };
+
+    _master.Logout = function ()
+    {
+        /*
+        if (QC.Login.check())
+        {
+            QC.Login.signOut();  //退出QQ登录
+        }
+        if (WB2.checkLogin())
+        {
+            WB2.logout();  //退出新浪微博
+        }
+        */
+        window.location.href="/Home/Logout";
+    };
+
+    $(function ()
+    {
+        //登录信息
+        _master.SearTextBox = $("#masterSearText");
+        //如果是
+        if (_master.SearchBy == "Master")
+        {
+            _master.SearTextBox.val(_master.SearchText);
+            _master.SearTextBox.focus();
+            _master.SearTextBox.select();
+        }
+
+        _master.SearTextBox.keydown(function ()
+        {
+            document.onkeydown = function mykeyDown(e)
+            {
+                e = e || event;
+                if (e.keyCode == 13) { _master.searchClick(); }
+                return;
+            }
+        });
+
+    });
+    _master.searchClick = function ()
+    {
+        var txt = $.trim(_master.SearTextBox.val());
+        if (txt == "")
+        {
+
+            layer.tips("搜索关键字不能为空", _master.SearTextBox);
+            _master.SearTextBox.focus();
+        }
+        else
+        {
+            window.location.href = "/Home/GoodsList?SearchBy=Master&keywords=" + txt;
+        }
+    };
+</script>
+</head>
+<body>
+	<!-- 引入头部 -->
+	<?php echo W('Public/header');?>;
+
+	<!-- 主题部分 -->
+	
+	<script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery-1.7.1.js"></script>
+	<script src="/xiangmu/TaoCiWang1/Public/Home/js/Dictionary.js"></script>
+<!--特价商品倒计时-->
+<script type="text/javascript">
+    var _Promotion = {
+        List: new Array(),
+        UpdateTime: function () { },  //更新时间
+        Explode: function () { },  //炸开数字
+        Pay: function (id) { }  //立即购买
+    };
+
+    $(function ()
+    {
+        setInterval("_Promotion.UpdateTime()", 1000);
+    });
+
+    //立即购买
+    _Promotion.Pay = function (id)
+    {
+        window.location.href = "/Micro_Home/GoodsContent?Identifier=" + id;
+    };
+
+    _Promotion.UpdateTime = function ()
+    {
+        for (var i = 0; i < _Promotion.List.length; i++)
+        {
+            //得到毫秒数
+            var nowTime = new Date();
+            var ms1 = new Date(_PromotionList[i].EndTime).valueOf();
+            var ms2 = nowTime.valueOf();
+
+            var ms3 = ms1 - ms2;
+
+            var days = Math.floor(ms3 / (24 * 3600 * 1000));
+            ms3 = ms3 - (days * (24 * 3600 * 1000));  //减去天数，得到最后一天毫秒数
+            var hours = Math.floor(ms3 / (1000 * 3600));
+            ms3 = ms3 - (hours * (1000 * 3600));    //减去小时数，得到最后一小时的毫秒数
+            var minutes = Math.floor(ms3 / (1000 * 60));
+            ms3 = ms3 - (minutes * (1000 * 60));  //减去分钟数，得到最后分钟的毫秒数
+            var seconds = Math.floor(ms3 / 1000);
+
+            //显示天数据
+            var div = $("#" + _Promotion.List[i].Id);
+            div.find("[name=days]").text(days);
+            div.find("[name=hours]").text(hours);
+            div.find("[name=minutes]").text(minutes);
+            div.find("[name=seconds]").text(seconds);
+        }
+    };
+
+    //给一个数字，分解字母
+    _Promotion.Explode = function (num, arr)
+    {
+        if (num > 0) //就往数组里添加一个数
+        {
+            var n = num % 10;  //取最低位
+            arr.push(n);     //填入数组
+            num = Math.floor(num / 10);  //除10取整
+            _Promotion.Explode(num, arr);
+        }
+    };
+</script>
+
+<script type="text/javascript">
+
+    var _view = {
+        tbSearch: $(),
+        SearchBy:"",
+        tbSearchTxt:"",
+        keywordsUrl: "",  //关键字搜索url
+        TypeUrl: "",     //
+        PropUrl: "",     //
+        searchInResualt: function () { },
+        TypeClick: function () { },
+        PropClick: function () { }
+    };
+
+    $(function ()
+    {
+        _view.tbSearch = $("#tbSearch");
+
+        //获取焦点
+        _view.tbSearchTxt = '';
+
+        //if (_view.SearchBy=="") //没有其他文本框设定焦点
+        //{
+        //    _view.tbSearch.focus();
+        //    _view.tbSearch.select();
+        //}
+
+        _view.tbSearch.focus(function ()
+        {
+            var txt = $.trim(_view.tbSearch.val());
+            if (txt == "在当前结果中搜索")
+            {
+                txt = _view.tbSearch.val("");
+            }
+            _view.tbSearch.select();
+        });
+
+        _view.tbSearch.blur(function ()
+        {
+            var txt = $.trim(_view.tbSearch.val());
+            if (txt == "")
+            {
+                _view.tbSearch.val("在当前结果中搜索");
+            }
+        });
+
+        _view.tbSearch.keydown(function ()
+        {
+            document.onkeydown = function mykeyDown(e)
+            {
+                //compatible IE and firefox because there is not event in firefox
+                e = e || event;
+                if (e.keyCode == 13) { _view.searchInResualt(); }
+                return;
+            }
+        });
+    });
+    
+    _view.searchInResualt = function ()
+    {
+        var txt =$.trim( _view.tbSearch.val());
+        if (txt == "" || txt == "在当前结果中搜索")
+        {
+            layer.tips("搜索关键字不能为空", _view.tbSearch);
+            _view.tbSearch.focus();
+        }
+        else  //搜索
+        {
+            window.location.href = _view.keywordsUrl + "&keywords=" + txt;
+        }
+    };
+
+    _view.TypeClick = function (id)
+    {
+        var url = _view.TypeUrl + "&TypeId=" + id;
+        window.location.href = url;
+    }
+</script>
+
+
+<script>
+    var _props =
+    {
+        PropUrl:null,
+        dict: new Dictionary(),
+        propClick: null,
+        red:null
+    }
+    $(function ()
+    {
+        _props.PropUrl = "/Home/GoodsList?columnId=NewGoods&NavLastName=PropValueId";
+        //描红
+        var dict =null; 
+        if(dict!=null)
+        {
+            $.each(dict,function(){
+                _props.dict.set(this.key,this.value);
+            });
+            _props.red();
+        }
+    });
+    _props.red=function(){
+        ////描红
+        //$("#propValueTb").find("a").each(function ()
+        //{
+        //    $(this).css("color", "#4c4c4c");
+        //});
+
+        //所有的都显示
+        $("#propValueTb").find("tr").each(function(){
+            $(this).show();
+        });
+
+        var keyspan=$("#keySpan");
+        keyspan.empty();
+        keyspan.hide();
+
+        _props.dict.each(function (key,value)
+        {
+            //alert(key);
+            $("#prop_"+key).hide();
+            //$("#propValueTb").find("a[propValueId=" + value + "]").css("color", "red");
+
+            //添加搜索关键字
+            keyspan.show();
+            var newkey=$("#keyTemp").find("label").clone();
+
+            var txt=$("[propValueId="+value+"]").text();
+            newkey.find("[name=keyname]").text(txt);
+
+            
+            var delX= newkey.find("a");
+            delX.attr("propid",key.substring(4));
+            delX.attr("pvalueid",value);
+            
+            delX.click(function(){
+
+                var lab = $(this);
+                var propId=$(this).attr("propid");
+                var propValueId=$(this).attr("pvalueid");
+                
+                if (_props.dict.get(propId) == propValueId)
+                {
+                    _props.dict.remove(propId);
+                }
+                else
+                {
+                    _props.dict.set(propId, propValueId)
+                }
+                _props.red();
+                //alert("开始装载"+"   "+_props.PropUrl+"   "+_props.dict.toJson());
+                window.location.href = _props.PropUrl + "&propsdict=" + _props.dict.toJson(); 
+            });
+
+            if(txt!="")
+            {
+                keyspan.append(newkey);
+            }
+        });
+    };
+
+    function propClick(_this)
+    {
+        var lab = $(_this);
+        var propId = lab.attr("propId");
+        var propValueId = lab.attr("propValueId");
+        
+
+        if (_props.dict.get(propId) == propValueId)
+        {
+            _props.dict.remove(propId);
+        }
+        else
+        {
+            _props.dict.set(propId, propValueId)
+        }
+
+        _props.red();
+        //alert("开始装载"+"   "+_props.PropUrl+"   "+_props.dict.toJson());
+        window.location.href = _props.PropUrl + "&propsdict=" + _props.dict.toJson(); 
+    };
+
+</script>
+<!--关键字模板-->
+<div id="keyTemp" style="display: none;">
+    <label>
+        <span class="fl" style="padding: 0px 6px">&gt;</span>
+        <span class="fl" style="border: 1px dotted #c40000; padding: 0px 8px; height: 24px; line-height: 24px; text-align: center; position: relative; padding-right: 20px; margin-top: 10px">
+            <font name="keyname"></font>
+            <a href="javascript:;" style="width: 7px; height: 7px; background: url(/Images/T186tKFDR_XXaYpYLe-35-30.png) -20px 0px no-repeat; display: block; position: absolute; top: 8px; right: 5px;"></a>
+        </span>
+    </label>
+</div>
+
+<div class="l_main">
+    <div class="j_location">
+        <span class="fl">您当前的位置&nbsp;&gt;
+         <span id="navigator"><a navname="homeIndex" style="color:black" target="_blank" href="<?php echo U('Index/index');?>">首页</a> &gt; <a navname="columnId" style="color:#ba3378 " target="_blank" href="<?php echo U('Newgoods/newgoods');?>">新品首发</a><a navname="TypeId" href=""></a><a navname="PropValueId" href=""></a></span>
+            <script type="text/javascript">
+                _view.keywordsUrl = '/Home/GoodsList?columnId=NewGoods&amp;NavLastName=columnId';
+                _view.TypeUrl = "/Home/GoodsList?columnId=NewGoods&NavLastName=TypeId";
+            </script>
+        </span>
+        <span id="keySpan"></span>
+        <span class="j_search_loac fl">
+            <input id="tbSearch" name="" type="text" class="j_seainp" value="在当前结果中搜索">
+            <input name="" onclick="_view.searchInResualt()" type="button" class="j_seabtn">
+        </span>
+    </div>
+
+    <div class="j_bwidth fl">
+
+        <div class="j_shaixuan">
+
+            <table id="propValueTb" width="100%" border="0" cellpadding="0" cellspacing="0" class="j_sxtable">
+                <tbody>
+                	<tr id="prop_0">
+	                    <td width="12%" height="32" class="j_huibg">所有分类</td>
+	                    <td width="88%" class="j_huibg">
+	                        <a href="javascript:;" onclick="_view.TypeClick(1)">餐具</a>
+	                        <a href="javascript:;" onclick="_view.TypeClick(2)">茶具/咖啡具</a>
+	                        <a href="javascript:;" onclick="_view.TypeClick(3)">最新单品</a>
+	                        <a href="javascript:;" onclick="_view.TypeClick(4)">艺术瓷/礼品瓷</a>
+	                    </td>
+                	</tr>
+            	</tbody>
+            </table>
+        </div>
+
+        <div class="j_pro_list">
+            <ul>
+                <li style="height:300px;">
+                    <div class="j_list_pic">
+                        <a href="<?php echo U('Detail/detail');?>" title="雅典神话22头">
+                        <img src="/xiangmu/TaoCiWang1/Public/Home/images/635757658756034110_849.jpg" width="209" height="209">
+						</a>
+                    </div>
+                    <div class="j_gyjiage">
+                        <span class="j_prodes_list">
+                            <a href="http://www.redroses1960.com/Home/GoodsContent?Identifier=2389" target="_blank" title="title=" 雅典神话22头""="">雅典神话22头</a>
+                        </span>
+                        <font class="j_preoprice_list">
+							<font class="j_shee_list">￥1080.00</font>
+						</font>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+        <!--翻页 start-->
+        
+
+
+<link href="/xiangmu/TaoCiWang1/Public/Home/css/ucPagination.css" rel="stylesheet">
+<script type="text/javascript">
+
+    var _ucPagination =
+        {
+            model:{"CurrentPage":1,"PageSize":20,"SumCount":54,"TotalPage":3,"Action":"GoodsList","Controller":"Home","UrlArgs":"?columnId=NewGoods"},  //序列化对象
+            goPage: 0,  //获取当前需要跳转到的页码
+            NumberCount:6,  //显示设置需要显示多少个数字
+            //
+            current: 1,
+            pageSize: 1,
+            sumCount: 1,
+            totalPage:1,
+
+            Div: $(),
+            pageNumber: $(),
+            PageCount: $(),  //总页数
+            tbCurPage:$(),
+            btPageJumpTo:$(),
+            Init: function (thepage, loadfun) { },
+            LoadDate: function () {  //定义装载函数,ajax 需要需要重新写这个函数。 用来执行加载页面的功能
+                if(_ucPagination.model.Action!="" &&_ucPagination.model.Controller!="") 
+                {
+                    var args=(_ucPagination.model.UrlArgs==null?"":_ucPagination.model.UrlArgs); //添加参数
+                    window.location.href="/"+_ucPagination.model.Controller+"/"+_ucPagination.model.Action+"/"+_ucPagination.goPage+args;
+                }
+            }, 
+            ItemClick: function () { },
+            ItemCreate: function (n) { },
+            btPageJumpToClick:function(){}
+        };
+    $(function(){
+        //设置了Model模型，初始化
+        if(_ucPagination.model.CurrentPage>0)
+        {
+            var thepage={
+                CurrentPage:_ucPagination.model.CurrentPage,
+                PageSize:_ucPagination.model.PageSize,
+                SumCount:_ucPagination.model.SumCount,
+                TotalPage:_ucPagination.model.TotalPage
+            };
+            _ucPagination.Init(thepage);  //初始化分页样式
+        }
+    });
+
+
+    _ucPagination.Init = function (thepage)
+    {
+        _ucPagination.current = thepage.CurrentPage;
+        _ucPagination.pageSize = thepage.PageSize;
+        _ucPagination.sumCount = thepage.SumCount;
+        _ucPagination.totalPage = thepage.TotalPage;
+
+        //获取页面元素。 不能在$()中获取，因为有可能调用初始化地方在 html.partion之前
+        _ucPagination.Div = $("#ucPagination");
+        _ucPagination.pageNumber = $("#ucPagination [name=pageNumber]")  //分页列表
+        _ucPagination.PageCount = $("#ucPagination [name=PageCount]").text("共"+_ucPagination.totalPage + "页")  //分页列表
+        _ucPagination.tbCurPage = $("#ucPagination [name=tbCurPage]").val(_ucPagination.current)  //分页列表
+        _ucPagination.btPageJumpTo=$("#ucPagination [name=btPageJumpTo]");  //确定按钮
+
+        $("#ucPagination [name=sumCount]").html("共" + _ucPagination.sumCount + "条,每页" + _ucPagination.pageSize + "条");
+        $("#ucPagination [name=PrePage]").attr("page", _ucPagination.current - 1); //下一页
+        $("#ucPagination [name=NextPage]").attr("page", _ucPagination.current + 1); //下一页
+
+        _ucPagination.tbCurPage.on("keyup", function(event)
+        {
+            this.value=this.value.replace(/\D/gi,""); //只能输入数字
+
+            if (event.keyCode == 13)
+            {
+                _ucPagination.btPageJumpTo.click();  //点击确定按钮
+            }
+        });
+        _ucPagination.btPageJumpTo.click(function(){
+
+            var no=$.trim(_ucPagination.tbCurPage.val());
+
+            if(no=="")
+            {
+                no="1";
+            }
+            var no=parseInt(no); //设置成数字 000=0
+            if(no==0)
+            {
+                no=1;  
+            }
+            _ucPagination.tbCurPage.val(no);  //消除空格,如果没有值，设定成1
+            
+            _ucPagination.goPage =no; 
+
+            if (_ucPagination.goPage > 0 && _ucPagination.goPage <= _ucPagination.totalPage)
+            {
+                _ucPagination.tbCurPage.val(_ucPagination.goPage);  //标记当前页
+                _ucPagination.LoadDate();  //可以由调用方法重新函数
+            }
+
+            _ucPagination.tbCurPage.focus(); //文本框获取焦点。 
+            _ucPagination.tbCurPage.select();  //全选
+        });
+
+        //填写当前页
+        var allNumber = 0;  //统计当前有多少个数据
+        _ucPagination.pageNumber.empty();
+        //添加当前行
+        $('<span class="num"></span>').append(_ucPagination.ItemCreate(_ucPagination.current)).appendTo(_ucPagination.pageNumber);
+        allNumber++;
+        //添加前两行
+        var newItem = $();
+        for (var i = 1; i <= Math.floor((_ucPagination.NumberCount-1)/2); i++)
+        {
+            if (_ucPagination.current - i > 0)
+            {
+                var num = _ucPagination.current - i;
+                _ucPagination.ItemCreate(num).prependTo(_ucPagination.pageNumber);
+                allNumber++;
+            }
+        }
+        //添加后两行或者多行
+        var k = 1;
+
+        while (allNumber < _ucPagination.NumberCount && (_ucPagination.current + k) <= _ucPagination.totalPage)
+        {
+            var num = (_ucPagination.current - 0 + k);
+            _ucPagination.ItemCreate(num).appendTo(_ucPagination.pageNumber);
+
+            k++;
+            allNumber++;
+        }
+        //查看还够不够5个,从头添加,获取最小的数字
+        var firstNum = _ucPagination.pageNumber.find("a").first().text() - 0;
+        var k = 1;
+        while (allNumber < _ucPagination.NumberCount && (firstNum - k) > 0)
+        {
+            var num = firstNum - k
+            _ucPagination.ItemCreate(num).prependTo(_ucPagination.pageNumber);
+
+            k++;
+            allNumber++;
+        }
+    };
+
+    _ucPagination.ItemCreate = function (n)
+    {
+        return $('<a page="' + n + '"  style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)";  >' + n + '</a>');
+    };
+
+    _ucPagination.ItemClick = function (_this)
+    {
+        _ucPagination.goPage = $(_this).attr("page") - 0;
+
+        if (_ucPagination.goPage > 0 && _ucPagination.goPage <= _ucPagination.totalPage)
+        {
+            _ucPagination.tbCurPage.val(_ucPagination.goPage);  //标记当前页
+            _ucPagination.LoadDate();  //可以由调用方法重新函数
+        }
+    }
+
+</script>
+
+<div id="ucPagination" class="pg_page">
+
+<ul class="items">
+
+    <li class="prev-disabled">
+    <span class="num">
+        <a href="javascript:void(0)" page="0" name="PrePage" onclick="_ucPagination.ItemClick(this)" style="text-align:center;">
+            <span class="icon"></span>
+            <span class="pg_shangx pg_Left">上一页</span>
+        </a>
+    </span>
+    </li>
+    <li name="pageNumber" class="item active" style="text-align:center"><span class="num"><a page="1" style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)" ;="">1</a></span><a page="2" style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)" ;="">2</a><a page="3" style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)" ;="">3</a></li>
+    <li class="prev-disabled">
+        <a href="javascript:void(0)" page="2" name="NextPage" onclick="_ucPagination.ItemClick(this)" style="text-align:center;">
+            <span class="num">
+                <span class="pg_shangx pg_Left">下一页</span>
+                <span class="icon1"></span>
+            </span>
+        </a>
+    </li>
+    <li style=" margin: 0 ;  border: 0px;">
+        <div class="pg_tzyeshu">
+            <span class="pg_Left">到第</span>
+            <input type="text" style="width:27px;" name="tbCurPage">
+            <span class="pg_Left"> 页&nbsp;&nbsp;<span name="PageCount">共3页</span></span> 
+            &nbsp; &nbsp;<a name="btPageJumpTo" class="jumpto" style="margin-left: 5px;">确定</a></div>
+    </li>
+</ul>
+</div>            <!--翻页end-->
+
+</div>
+
+	<!-- 推荐产品 -->
+	<div class="j_swidth fr">
+		<div class="j_swidtn_one">
+		    <div class="j_swonetl">推荐产品</div>
+		    <div class="j_swonecon">
+		        <ul class="j_tjcp">
+		            <li>
+		                <a href="">
+			                <img src="/xiangmu/TaoCiWang1/Public/Home/images/635717850053676891_790_small.jpg" width="183" height="183">
+
+			                <span class="j_prodes">花辰月夕56头餐具</span>
+			                <span class="j_preoprice">
+			                    <font class="j_sheep">￥</font>
+			                    <font class="j_price">900.00</font>
+			                </span>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</div>
+
+	<br>
+	<div style="display: block; width: 100px; height: 600px;"></div>
+	<br>
+</div>
+
+	<!-- 引入尾部 -->
+	<?php echo W('Public/footer');?>;
+</body>
+</html>

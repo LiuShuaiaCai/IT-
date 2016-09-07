@@ -1,0 +1,1653 @@
+<extend name='Index/index' />
+<block name='main'>
+	<!--特价商品倒计时-->
+<script type="text/javascript">
+    var _Promotion = {
+        List: new Array(),
+        UpdateTime: function () { },  //更新时间
+        Explode: function () { },  //炸开数字
+        Pay: function (id) { }  //立即购买
+    };
+
+    $(function ()
+    {
+        setInterval("_Promotion.UpdateTime()", 1000);
+    });
+
+    //立即购买
+    _Promotion.Pay = function (id)
+    {
+        window.location.href = "/Micro_Home/GoodsContent?Identifier=" + id;
+    };
+
+    _Promotion.UpdateTime = function ()
+    {
+        for (var i = 0; i < _Promotion.List.length; i++)
+        {
+            //得到毫秒数
+            var nowTime = new Date();
+            var ms1 = new Date(_Promotion.List[i].EndTime).valueOf();
+            var ms2 = nowTime.valueOf();
+
+            var ms3 = ms1 - ms2;
+
+            var days = Math.floor(ms3 / (24 * 3600 * 1000));
+            ms3 = ms3 - (days * (24 * 3600 * 1000));  //减去天数，得到最后一天毫秒数
+            var hours = Math.floor(ms3 / (1000 * 3600));
+            ms3 = ms3 - (hours * (1000 * 3600));    //减去小时数，得到最后一小时的毫秒数
+            var minutes = Math.floor(ms3 / (1000 * 60));
+            ms3 = ms3 - (minutes * (1000 * 60));  //减去分钟数，得到最后分钟的毫秒数
+            var seconds = Math.floor(ms3 / 1000);
+
+            //显示天数据
+            var div = $("#" + _Promotion.List[i].Id);
+            div.find("[name=days]").text(days);
+            div.find("[name=hours]").text(hours);
+            div.find("[name=minutes]").text(minutes);
+            div.find("[name=seconds]").text(seconds);
+        }
+    };
+
+    //给一个数字，分解字母
+    _Promotion.Explode = function (num, arr)
+    {
+        if (num > 0) //就往数组里添加一个数
+        {
+            var n = num % 10;  //取最低位
+            arr.push(n);     //填入数组
+            num = Math.floor(num / 10);  //除10取整
+            _Promotion.Explode(num, arr);
+        }
+    };
+</script>
+
+<!--功能函数-->
+<script type="text/javascript">
+    //功能函数
+    var _fun={
+        Sku:{
+            Get:function(skuId,trueFun,falseFun){}
+        },
+        ShopCar:{
+            Add:function(trueFun,falseFun){} ,      //添加到购物车
+            UpdateQuantity:function(carId,Quantity,trueFun,falseFun){}
+        }
+    };
+
+    //_fun.Sku.Get
+    _fun.Sku.Get=function(skuId,trueFun,falseFun){
+        var index = 0;
+        $.ajax({
+            url: "/ForeJson/GoodsSkuGet",
+            data: {
+                Identifier: skuId,
+                fieldNames:"Identifier,Price,PromotionPrice,Quantity,inPromotion"
+            },
+            dataType: "json",
+            type: "post",
+            cache: false,
+            beforeSend: function () { index =layer.load();},
+            complete: function () { layer.close(index); },            
+            error: function () {  },
+            success: function (r)
+            {
+                if (r && r.success)
+                {
+                    _view.sku=r.data;  //存储_sku数据
+
+                    ////更新数据
+                    _view.Price.text("￥"+(_view.sku.inPromotion==1?_view.sku.PromotionPrice.toFixed(2):_view.sku.Price.toFixed(2))+"元");  
+                    _view.SkuCount.text(_view.sku.Quantity);
+                    //回调函数
+                    if(trueFun)
+                    {
+                        trueFun(r);  //调用回调函数，参数返回数据
+                    }
+                }
+                else
+                {
+                    _view.sku=null;  //清空
+                    _view.Price.text(0);
+                    _view.SkuCount.text("0");
+
+                    //回调函数
+                    if(falseFun)  //如果有失败函数，就执行，没有就执行默认的。 
+                    {
+                        falseFun(r); //调用回调函数，参数返回数据
+                    }
+                    else
+                    {
+                        layer.alert(r.msg,{icon: 0});
+                    }
+                }
+            }
+        });
+    };
+
+   
+
+    //这里没有使用。 
+    _fun.ShopCar.UpdateQuantity=function(carId,Quantity,trueFun,falseFun)
+    {
+        var index = 0;
+        $.ajax({
+            url: "/ForeJson/ShopCarUpdateQuantity",
+            data: {
+                carId: carId,
+                Quantity: Quantity
+            },
+            dataType: "json",
+            type: "post",
+            cache: false,
+            beforeSend: function () { index =layer.load();},
+            complete: function () { layer.close(index); },            
+            error: function () {  },
+            success: function (r)
+            {
+                if (r && r.success)
+                {
+                    trueFun(r)  //调用回调函数，参数返回数据
+                }
+                else
+                {
+                    if(falseFun)  //如果有失败函数，就执行，没有就执行默认的。 
+                    {
+                        falseFun(r); //调用回调函数，参数返回数据
+                    }
+                    else
+                    {
+                        if(r.data==1)
+                        {
+                            layer.alert(r.msg,{icon: 0},function(){
+                                window.location.href="/Home/Login";
+                            });
+                        }
+                        else
+                        {
+                            layer.alert(r.msg,{icon: 0});
+                        }
+                    }
+                }
+            }
+        });
+    };
+</script>
+
+<script type="text/javascript">
+
+    var _view = {
+        sku:null,   //当前选择sku数据，
+        webhost:"http://www.ccia086.com",
+        model:{},
+        //
+        Price: $(),
+        SkuCount: $(),
+        BuyCount: $(),
+        //
+        SkuClick:function(){},  //选择分类
+        AddCount:function(){},  //增加 减少数量
+        Pay:function(){},        //立即购买
+        CollectGoods:function(){},  //收藏商品
+        TabClick:function(tabName){}
+    };
+    $(function ()
+    {
+        _view.model={"GoodsSKUList":[{"Identifier":4024,"GoodsId":2389,"SkuName":null,"Price":1080.00,"PromotionPrice":0.00,"Quantity":0,"Description":"描述","TheOrder":0,"Image":null,"Thumbnail":null,"Ids":null,"inPromotion":2}],"PromActivities":null,"Rownumber":1,"Identifier":2389,"TheState":1,"TypeId":1,"GoodsName":"雅典神话22头","Price":1080.00,"PriceOnSale":1080.00,"PriceNow":1080.00,"StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658756034110_849.jpg","Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658756034110_849_small.jpg","UserId":365,"ColumnId":2326,"InfoSummary":"红玫瑰骨质瓷，是1973年研制成功，中国首创发明骨质瓷的红玫瑰品牌，结束了中国没有高档骨质瓷的历史，骨瓷在制作过程中加入动物的骨粉(灰)，以牛骨为佳。红玫瑰骨质瓷入选世博会有65个品种，每件瓷器上都有精美的花瓣图案，世博会国宴上中国瓷器将为68个国家的元首提供“花瓣伴美味”的服务。","InfoMore":"<img src=\"http://www.ccia086.com/Upload/Pic/Ads/365/KindEditor/20150821145641_2692.jpg\" alt=\"\" /><img src=\"http://www.ccia086.com/Upload/Pic/Ads/365/KindEditor/20150821145641_8464.jpg\" alt=\"\" /><img src=\"http://www.ccia086.com/Upload/Pic/Ads/365/KindEditor/20150821145642_3768.jpg\" alt=\"\" /><img src=\"http://www.ccia086.com/Upload/Pic/Ads/365/KindEditor/20150821145643_1100.jpg\" alt=\"\" /><img src=\"http://www.ccia086.com/Upload/Pic/Ads/365/KindEditor/20150821145643_4532.jpg\" alt=\"\" />","Brand":2300,"SkuTitle":"分类","inPromotion":2,"PromotionActivitiesId":null,"GoodsPromotionId":null,"PromotionPrice":null,"PromotionBeginTime":null,"PromotionEndTime":null,"PDescription":null,"provinceID":null,"cityID":null,"PlaceOfOrigin":null,"Honour":null,"Decal":null,"ShapeDesign":null,"ModeOfProduction":null,"Limited":null,"CulturalOriginality":null,"TimeToMarket":null,"TheShelvesState":null,"BrandName":"红玫瑰","ColumnName":"新品上市"};
+        _view.BuyCount=$("#BuyCount");
+
+        _view.Price = $("#Price");
+        _view.SkuCount = $("#SkuCount");
+
+        //如果有分类，让默认选择第一个分类
+        var nsku= $("#SkuLst ul").find("li");
+        if(nsku.length>0)
+        {
+            $(nsku.get(0)).find("a").click();
+            //$("#SkuLst").find("span").first().find("a").click();
+        }
+    });
+
+    _view.CollectGoods=function(id){
+        
+        var index = 0;
+        $.ajax({
+            url: "/ForeJson/SaveCollect",
+            data: {
+                cid: id,
+                type:2  //1:商城收藏  2：商品收藏 3：厂家收藏
+            },
+            dataType: "json",
+            type: "post",
+            cache: false,
+            beforeSend: function () { index =layer.load({shade:0});},
+            complete: function () { layer.close(index); },            
+            error: function () {  },
+            success: function (r)
+            {
+                if (r && r.success)
+                {
+                    layer.alert(r.msg,{icon: 1});
+                }
+                else
+                {
+                    if(r.data==1)
+                    {
+                        window.location.href="/Home/Login";
+                    }
+                    else
+                    {
+                        layer.alert(r.msg,{icon: 0});
+                    }
+                }
+            }
+        });
+    };
+
+    _view.SkuClick = function (_this,sku)
+    {
+        _fun.Sku.Get(sku.Identifier);
+        //更换图片
+        if(sku.Image)
+        {
+            _ucImgMagnifier.ChangeImg(_view.webhost+sku.Image);
+        }
+        //更换颜色设置
+        var skuAll=$(_this).parent().parent();
+
+        skuAll.find("a").each(function(){
+            $(this).css({"z-index":""});
+            $(this).parent().css({border:""});
+            $(this).parent().find("[name=xdjPng]").removeClass("l_tpwt1");
+        });
+        
+        $(_this).css({"z-index":"-111"});
+        $(_this).parent().css({border:"2px solid #be0106"});
+        $(_this).parent().find("[name=xdjPng]").addClass("l_tpwt1");
+    };
+
+ 
+    _view.AddtoCar = function ()
+    {
+        //添加数据到购物车
+        _fun.ShopCar.Add(function(r){  //如果添加成功
+            var txt="";
+            if(r.msg=="1")
+            {
+                txt="当前商品已经在购物车中,是否进入购物车？";
+            }
+            else if(r.msg=="2")  
+            {
+                txt="添加成功，是否进入购物车";
+            }
+            
+            layer.confirm(txt,function(index)
+            {
+                window.location.href="/Home/ShopCarList";
+            },function()
+            {
+                window.location.reload();
+            });
+        });
+    }
+
+    //立即购买
+    _view.Pay=function(id)
+    {
+        //添加数据到购物车
+        _fun.ShopCar.Add(function(r){  //如果添加成功
+            window.location.href="/Home/GoodsOrderConfirm?ShopCarIds="+r.data.Identifier;;
+        });
+    }
+
+</script>
+
+<!--商品评论-->
+<script type="text/javascript">
+    var _comment={
+        Webhost:"http://www.ccia086.com",
+        data:{},
+        tab2:$(),
+        CommentLstUl:$(),
+        ThePage:{},  //分页数据
+
+        //整体评价
+        StarValue:$(),
+        StarValue2:$(),
+        //
+        currentPage:1,  //当前页
+        comLevel:0,  //好评中评差评
+
+        GetDate:function(){},  //获取数据
+        ShowComment:function(data){},  //装载数据
+        RadioOnChange:function(){}, //单选按钮选择
+        PageClick:function(n){}
+    };
+
+    $(function(){
+        _comment.data={
+  "ThePage": {
+    "CurrentPage": 1,
+    "PageSize": 8,
+    "SumCount": 0,
+    "TotalPage": 0
+  },
+  "LevelValue": 0.0,
+  "SumLevel": null,
+  "CountLevel": 0,
+  "CountBad": 0,
+  "CountGeneral": 0,
+  "CountGood": 0,
+  "List": null
+};
+        _comment.tab2=$("[name=TabLi][index=2]");  //商品评论
+        _comment.CommentLstUl=$("#CommentLstUl");
+        //整体评价
+        _comment.StarValue=$("#emStarValue");
+        _comment.StarValue2=$("#emStarValue2");
+        //
+        _comment.ShowComment(_comment.data);
+
+    });
+    
+    _comment.ShowComment=function(data){
+
+        _comment.ThePage={}; //分页数据
+        _comment.CommentLstUl.empty(); //清空数据
+
+        var LevelValue=0;  //平均分数
+        var SumLevel =0;  //分数总和
+        var CountLevel =0;  //评论数量
+
+        var CountBad =0;  
+        var CountGeneral =0;
+        var CountGood =0;
+
+        if(data!=null)
+        {
+            _comment.ThePage=data.ThePage;  //获取分页数据
+
+            LevelValue=data.LevelValue ; //平均分数
+            SumLevel= data.SumLevel;    //评论分数总和
+            CountLevel=data.CountLevel;  //评论数量
+
+            CountBad=data.CountBad;
+            CountGeneral=data.CountGeneral;
+            CountGood=data.CountGood;
+        }
+
+        //标题
+        _comment.tab2.text("商品评论("+CountLevel+")");
+
+        //整体评价
+        _comment.StarValue.text(LevelValue);   //分数
+        $("#emStar").css("width", (LevelValue / 5) * 60);
+
+        $("#emStarValue2").text(LevelValue);  //整体评价2
+        $("#emStarValue2").css("left", (LevelValue / 5) * 384);
+
+        //--好 中 差 统计
+        $("#fontBad").text("（" +CountBad + "）");
+        $("#fontGeneral").text("（" + CountGeneral + "）");
+        $("#fontGood").text("（" + CountGood + "）");
+
+        if(data!=null&& data.List!=null)
+        {
+            $.each(data.List,function(){
+                var strLi='<li id="Li_0">'+
+                                 '<div class="t_ong" name="logo">'+
+                                     '<img src="'+_comment.Webhost+this.LogoThumbnail+' " width="100" height="100"></div>'+
+                                 '<div class="t_fbxx_fl" name="info">'+
+                                     '<div class="t_name" name="userName">'+((this.HideName==1)?this.ShowName:'匿名用户')+'</div>'+
+                                     '<div class="t_nrpl" name="userInfo">'+this.ComInfo+'</div>'+
+                                     '<div class="t_time" name="ReleaseTime">'+this.ReleaseTime+'</div>'+
+                                 '</div>'+
+                             '</li>';
+                _comment.CommentLstUl.append(strLi);
+            });
+        }
+
+        _ucPagination.Init(_comment.ThePage);
+    };
+
+    _comment.GetDate=function(level)
+    {   
+        if (level>=0)   //通过单选进行装载数据，否则是通过翻页进行装载数据
+        {
+            _comment.comLevel=level;   //设置评论级别
+            _comment.currentPage=1;  //设置当前页
+        }
+
+        var index=0;
+
+        $.ajax({
+            url: "/ForeJson/GoodsCommnetLoad",
+            data: {
+                currentPage: _comment.currentPage,
+                GoodsId: _view.model.Identifier,
+                comLevel:_comment.comLevel
+            },
+            dataType: "json",
+            type: "post",
+            cache: false,
+            beforeSend: function () { index = layer.load(); },
+            complete: function () { layer.close(index); },
+            error: function() {  },
+            success: function(r)
+            {
+                _comment.ShowComment(r.data);
+                //
+            }
+        });
+        
+    };
+
+
+    _comment.PageClick=function(n)
+    {
+        _comment.currentPage=n;
+        _comment.GetDate();
+    }
+
+    //_comment.pageUp=function ()
+    //{
+    //    if (_comment.currentPage > 1)
+    //    {
+    //        _comment.currentPage = _comment.currentPage - 1;
+            
+    //        _comment.GetDate();
+    //    }
+    //}
+    //_comment.pageDown=function()
+    //{
+    //    if (_comment.currentPage < _comment.ThePage.TotalPage)
+    //    {
+    //        _comment.currentPage = _comment.currentPage + 1;
+
+    //        _comment.GetDate();
+    //    }
+    //}
+
+
+</script>
+
+<!--月成交量和总成交量-->
+<script type="text/javascript">
+
+    function renderTime(date)
+    {
+        var da = new Date(parseInt(date.replace("/Date(", "").replace(")/", "").split("+")[0]));
+        return da.getFullYear() + "-" 
+            + (da.getMonth() + 1) + "-" 
+            + da.getDate() + " " 
+            + da.getHours() + ":" 
+            + da.getMinutes() + ":" 
+            + da.getSeconds();
+    }
+
+    var _turnover={
+        GetData:function(){},
+        InseToTable:function(data,tbody){  //把数据插入到表格中
+
+            $.each(data,function(){
+                var row=$("#TempTurnover tr").clone();
+
+                row.find("[name=Identifier]").text(this.Identifier);
+                row.find("[name=UserName]").text(this.UserName);
+                row.find("[name=SkuName]").text(this.SkuName);
+                row.find("[name=Quantity]").text(this.Quantity);
+                row.find("[name=Price]").text(this.Price);
+
+                var str= renderTime(this.CreateTime);
+                row.find("[name=CreateTime]").text(str);
+
+                row.appendTo(tbody);
+            });
+        }
+    };
+
+    _turnover.GetData=function(turnoverType,trueFun,falseFun )
+    {
+        var index = 0;
+        $.ajax({
+            url: "/ForeJson/TurnoverGetList",
+            data: {
+                goodsid: _view.model.Identifier ,
+                turnoverType:turnoverType
+            },
+            dataType: "json",
+            type: "post",
+            cache: false,
+            beforeSend: function () { index =layer.load({shade:0});},
+            complete: function () { layer.close(index); },            
+            error: function () {  },
+            success: function (r)
+            {
+                if (r && r.success)
+                {
+                    trueFun(r)  //调用回调函数，参数返回数据
+                }
+                else
+                {
+                    if(falseFun)  //如果有失败函数，就执行，没有就执行默认的。 
+                    {
+                        falseFun(r); //调用回调函数，参数返回数据
+                    }
+                }
+            }
+        });
+
+    }
+
+
+    _view.TabClick=function(_this)
+    {
+        var $li=$(_this);
+        var index=$li.attr("index")-0; //索引值
+
+        //设置样式
+        $li.addClass("hover");  
+        $li.siblings().each(function(){
+            $(this).removeClass("hover");
+        });
+
+        //显示内容
+        $("[name=con_TabLi]").each(function(){
+            if($(this).attr("index")==index)
+            {
+                $(this).show();
+            }
+            else
+            {
+                $(this).hide();
+            }
+        });
+        //填充月成交量
+        if(index==3)
+        {
+            var tbody=$("[name=con_TabLi][index=3] tbody");
+            tbody.empty();
+            _turnover.GetData("Month",function(r)
+            {
+                _turnover.InseToTable(r.data,tbody);
+            });
+        }
+        else if (index==4) //填充总成交量
+        {
+            var tbody=$("[name=con_TabLi][index=4] tbody");
+            tbody.empty();
+
+            _turnover.GetData("All",function(r){
+                _turnover.InseToTable(r.data,tbody);
+            });
+        }
+    }
+
+    function setTab(name, cursel, n)
+    {
+        for (i = 1; i <= n; i++)
+        {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "hover" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    };
+
+</script>
+
+    <!--商品详情页面-->
+    <div class="l_bt">
+        您当前的位置： <a href="http://www.redroses1960.com/Home/Index">首页</a> &gt; <a href="http://www.redroses1960.com/Home/GoodsList?columnId=2326">新品上市</a> &gt;<font style="color:#ba3378 ">  雅典神话22头</font>
+    </div>
+    <div class="l_spxq">
+        <div class="l_xq_z">
+            
+<script src="__PUBLIC__/Home/images/jquery-1.7.1.js"></script>
+
+<style type="text/css">
+    .ucImgMagnifierBody {
+        float: left;
+        width: 380px;
+        height: 450px;
+        position: relative;
+        margin: 20px;
+    }
+
+        .ucImgMagnifierBody .ucImgLargeDiv {
+            display: none;
+            position: absolute;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            width: 350px;
+            height: 350px;
+            margin: 0px;
+            padding: 0px;
+            z-index: 100000;
+        }
+
+        .ucImgMagnifierBody .shadow {
+            position: absolute;
+            display: none;
+            z-index: 2;
+            opacity: 0.4;
+            filter: alpha(opacity = 40); /* IE下使用 */
+            width: 400px;
+            height: 200px;
+            cursor: pointer;
+            left: 200px;
+            top: 400px;
+            display: none;
+            background-color: rgb(170, 228, 101);
+        }
+
+
+    /*****图片放大效果开始****/
+    .thumbnails {
+        margin-top: 5px;
+        height: 70px;
+        position:absolute; 
+        float:left;   
+        top: 385px;
+        left:0px;
+    }
+
+    .thumbnails_l {
+        float: left;
+        padding-top: 8px;
+        display: none;
+    }
+
+    .thumbnails_r {
+        float: right;
+        padding-top: 8px;
+        display: none;
+    }
+
+    .thumbnails_c {
+        float: left;
+    }
+
+        .thumbnails_c li {
+            float: left;
+            width: 61px;
+            height: 58px;
+        }
+
+            .thumbnails_c li a {
+                display: block;
+                width: 52px;
+                height: 52px;
+                border: 4px solid white !important;
+            }
+
+                .thumbnails_c li a:hover {
+                    border: 4px solid #D6D5D5 !important;
+                }
+
+                .thumbnails_c li a img {
+                    display: block;
+                    border: 1px solid #D6D5D5;
+                }
+
+    .curr_thumbnails_c a {
+        display: block;
+        width: 52px;
+        height: 52px;
+        border: 4px solid #f0efef !important;
+    }
+
+    .curr_thumbnails_c li a img {
+        display: block;
+        border: 1px solid #D6D5D5;
+    }
+
+    .l_xxk {
+        width: 1198px;
+        clear: both;
+        overflow: hidden;
+        margin-top: 15px;
+        border: 1px solid #e6e6e6;
+    }
+
+    /*
+    .j_zt_right_box {
+        width: 1189px;
+        margin: 0 auto;
+        clear: both;
+    }*/
+    /*蒋晓丽修改 identifier=87230*/
+    .j_zt_right_box { width: 100%; margin: 0 auto; clear: both; }
+
+</style>
+
+<script type="text/javascript">
+
+    var _ucImgMagnifier =
+    {
+        model:[],
+        webhost:"http://www.ccia086.com",
+           Div: $(),  //整个控件的DIV
+           smallDiv: $(), //小图Div
+           largeDiv: $(),  //放大镜Div
+           ThumbUl: $(), //画廊Ul
+           ThumbLeft: $(),
+           ThumbRight: $(),
+
+           //
+           smallImg: $(),
+           largeImg: $(),
+           shadow: $(),
+           Msg:$(),
+           ChangeImg: function (src) { },  //更换图片
+           GalleryClick: function (_this) { },
+           ThumbLiToLeft: function () { },
+           ThumbLiToRight: function () { },
+           ShowArrow: function () { }  //显示缩略图箭头
+       };
+
+       //图片2的数据
+       var _ucimg2 = {
+           Width: 0,
+           Height:0,
+           Left: 0,
+           Top: 0,
+           ResetSize: function () { },
+           SetLocation: function () { } //设置位置
+       };
+
+       var _ucMouse = {
+           X:0,
+           Y: 0,
+           GetData: function (ex,ey) { } //获取鼠标位置
+       }
+       var _ucShadow = {
+           X: 0,
+           Y: 0,
+           Width: 0,
+           Height: 0,
+           ResetSize: function () { }  //设置阴影大小
+       };
+
+       $(function ()
+       {
+           _ucImgMagnifier.model=[{"Identifier":10232,"UpdateTime":"2015-08-21T14:57:55.77","TheState":1,"InfoId":2389,"OriginalName":"1.jpg","StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658756034110_849.jpg","FileSize":null,"FileType":".jpg","FilepathType":0,"Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658756034110_849_small.jpg","AdDisPlayOrder":33,"StorageNameSmall":null,"Ids":""},{"Identifier":10233,"UpdateTime":"2015-08-21T14:57:55.903","TheState":1,"InfoId":2389,"OriginalName":"2.jpg","StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658757750113_992.jpg","FileSize":null,"FileType":".jpg","FilepathType":0,"Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658757750113_992_small.jpg","AdDisPlayOrder":33,"StorageNameSmall":null,"Ids":""},{"Identifier":10234,"UpdateTime":"2015-08-21T14:57:56.077","TheState":1,"InfoId":2389,"OriginalName":"3.jpg","StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658759154115_852.jpg","FileSize":null,"FileType":".jpg","FilepathType":0,"Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658759154115_852_small.jpg","AdDisPlayOrder":33,"StorageNameSmall":null,"Ids":""},{"Identifier":10235,"UpdateTime":"2015-08-21T14:57:56.22","TheState":1,"InfoId":2389,"OriginalName":"4.jpg","StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658760870118_995.jpg","FileSize":null,"FileType":".jpg","FilepathType":0,"Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658760870118_995_small.jpg","AdDisPlayOrder":33,"StorageNameSmall":null,"Ids":""},{"Identifier":10236,"UpdateTime":"2015-08-21T14:57:56.357","TheState":1,"InfoId":2389,"OriginalName":"5.jpg","StorageName":"/Upload/User/365/Pic/Goods/Photo/635757658762274121_855.jpg","FileSize":null,"FileType":".jpg","FilepathType":0,"Thumbnail":"/Upload/User/365/Pic/Goods/Photo/635757658762274121_855_small.jpg","AdDisPlayOrder":33,"StorageNameSmall":null,"Ids":""}];
+
+           _ucImgMagnifier.Div = $("#ucImgMagnifierBody");
+           _ucImgMagnifier.smallDiv = $("#ucImgMagnifierBody [name=ucImgSamllDiv]");
+           _ucImgMagnifier.largeDiv = $("#ucImgMagnifierBody [name=ucImgLargeDiv]");
+           _ucImgMagnifier.shadow = $("#ucImgMagnifierBody [name=ucImgShadow]");
+           _ucImgMagnifier.Msg = $("#ucImgMagnifierBody [name=ucImgMsg]");
+           _ucImgMagnifier.ThumbUl = $("#ucImgMagnifierBody [name=ucImgThumbUl]");
+           _ucImgMagnifier.ThumbLeft = $("#ucImgMagnifierBody [name=ucImgThumbLeft]");
+           _ucImgMagnifier.ThumbRight = $("#ucImgMagnifierBody [name=ucImgThumbRight]");
+
+           _ucImgMagnifier.ShowArrow();
+           //
+           _ucImgMagnifier.smallImg = _ucImgMagnifier.smallDiv.find("img");
+           _ucImgMagnifier.largeImg = _ucImgMagnifier.largeDiv.find("img");
+
+           //初始化图片
+           
+           //有模型图片,js添加的图片src，IE下也能调用load事件，否则不能。 
+           if(_ucImgMagnifier.model&& _ucImgMagnifier.model.length>0)
+           {
+               _ucImgMagnifier.ChangeImg(_ucImgMagnifier.webhost+_ucImgMagnifier.model[0].StorageName);
+           }
+
+           _ucImgMagnifier.smallImg.load(function ()
+           {
+               var img = $(this);
+               //alert("width:" + img.width() + "  height:" + img.height());
+               img.show();
+               if (img.width() >= img.height()) //横图
+               {
+                   img.width("100%").height("")
+                       .css("position", "relative")
+                       .css("top", (img.width() - img.height()) / 2)
+                       .css("left", 0);
+               }
+               else
+               {
+                   img.height("100%").width("")
+                       .css("position", "relative")
+                       //.css("left", (img.height() - img.width()) / 2) 竖图居中。用text-align:center; 方式
+                       .css("top", 0);
+                   //居中
+               }
+           });
+
+           _ucimg2.ResetSize = function ()
+           {
+               //定位大图位置
+               var _img_large_width = _ucImgMagnifier.largeImg.width();
+               var _img_large_height = _ucImgMagnifier.largeImg.height();
+
+               //判断图片大小,太小的图片，进行缩放
+               var newW = 0;
+               var newH = 0;
+               var zoomN = 2;
+               if (_img_large_width >= _img_large_height)  //横图或正方形
+               {
+                   if (_img_large_height < _ucImgMagnifier.largeDiv.height() * zoomN)  //图片太小
+                   {
+                       //按比例放大
+                       newH = Math.round(_ucImgMagnifier.largeDiv.height() * zoomN);
+                       newW = Math.round(newH * (_img_large_width / _img_large_height));
+
+                       _ucImgMagnifier.largeImg.css("width", newW);
+                       _ucImgMagnifier.largeImg.css("height", newH);
+
+                       _img_large_width = newW;
+                       _img_large_height = newH;
+                   }
+               }
+               else  //立图
+               {
+                   if (_img_large_width < _ucImgMagnifier.largeDiv.width() * zoomN)  //图片太小
+                   {
+                       //按比例放大
+                       newW = Math.round(_ucImgMagnifier.largeDiv.width() * zoomN);
+                       newH = Math.round(newW * (_img_large_height / _img_large_width));
+
+                       _ucImgMagnifier.largeImg.css("width", newW);
+                       _ucImgMagnifier.largeImg.css("height", newH);
+
+                       _img_large_width = newW;
+                       _img_large_height = newH;
+                   }
+               }
+
+               _ucimg2.Width = _img_large_width;
+               _ucimg2.Height = _img_large_height;
+
+               _ucImgMagnifier.largeImg.width(_ucimg2.Width);
+               _ucImgMagnifier.largeImg.height(_ucimg2.Height);
+           };
+
+           _ucShadow.ResetSize = function ()
+           {
+               var img1_w=_ucImgMagnifier.smallImg.width();
+               var img1_h=_ucImgMagnifier.smallImg.height();
+
+               var div2_w=_ucImgMagnifier.largeDiv.width();
+               var div2_h=_ucImgMagnifier.largeDiv.height();
+
+               var img2_w=_ucimg2.Width;
+               var img2_h=_ucimg2.Height;
+               
+               _ucShadow.Width = Math.round(img1_w * (div2_w / img2_w));
+               _ucShadow.Height = Math.round(img1_h * (div2_h / img2_h));
+
+               _ucImgMagnifier.shadow.width(_ucShadow.Width);
+               _ucImgMagnifier.shadow.height(_ucShadow.Height);
+           };
+
+           //重新定位
+           _ucimg2.SetLocation = function ()
+           {
+               var _mouse_x = _ucMouse.X;
+               var _mouse_y = _ucMouse.Y;
+
+               //小图片大小
+               var _img_small_width = _ucImgMagnifier.smallImg.width();
+               var _img_small_height = _ucImgMagnifier.smallImg.height();
+
+               var _large_left = 0 - Math.round(_ucimg2.Width * (_mouse_x / _img_small_width) - _ucImgMagnifier.largeDiv.width() / 2);
+               var _large_top = 0 - Math.round(_ucimg2.Height * (_mouse_y / _img_small_height) - _ucImgMagnifier.largeDiv.height() / 2);
+
+               _large_left = _large_left > 0 ? 0 : _large_left;
+               _large_top = _large_top > 0 ? 0 : _large_top;
+
+               _large_left = (_ucimg2.Width + _large_left) < _ucImgMagnifier.largeDiv.width() ? -(_ucimg2.Width - _ucImgMagnifier.largeDiv.width()) : _large_left;
+               _large_top = (_ucimg2.Height + _large_top) < _ucImgMagnifier.largeDiv.height() ? -(_ucimg2.Height - _ucImgMagnifier.largeDiv.height()) : _large_top;
+
+               _ucImgMagnifier.largeImg.css({ left: _large_left + "px", top: _large_top + "px" });
+
+               _ucimg2.Left = _large_left;
+               _ucimg2.Top = _large_top;
+           };
+
+           _ucMouse.GetData = function ($dom, ex, ey)
+           {
+               //_ucImgMagnifier.Msg.show();
+               //获取鼠标位置
+
+               var $dom_left = Math.floor($dom.offset().left);
+               var $dom_top = Math.floor($dom.offset().top);
+
+               var scoLeft = $("body").scrollLeft() || document.documentElement.scrollLeft;  //为了IE兼容性考录  
+               var scoTop = $("body").scrollTop() || document.documentElement.scrollTop;   //为了IE兼容性考录
+
+               var _mouse_x = scoLeft + ex - $dom_left;
+               var _mouse_y = scoTop + ey - $dom_top;
+
+               _ucMouse.X = _mouse_x;
+               _ucMouse.Y = _mouse_y;
+
+               var _x=0;
+               var _y=0;
+               if ($dom.width() >= $dom.height()) //横图
+               {
+                   _y=($dom.width() - $dom.height()) / 2;
+               }
+               else
+               {
+                   _x=($dom.height() - $dom.width()) / 2
+                   //居中
+               }
+
+               //移动阴影到鼠标位置
+               _ucShadow.X = _x+_ucMouse.X - _ucShadow.Width / 2;
+               _ucShadow.Y = _y+ _ucMouse.Y - _ucShadow.Height / 2;
+
+               _ucShadow.X = _ucShadow.X < _x ? _x : _ucShadow.X;
+               _ucShadow.Y = _ucShadow.Y < _y ? _y : _ucShadow.Y;
+
+               _ucShadow.X = (_ucShadow.X + _ucShadow.Width) >(_x+ _ucImgMagnifier.smallImg.width()) ? (_x+_ucImgMagnifier.smallImg.width() - _ucShadow.Width) : _ucShadow.X;
+               _ucShadow.Y = (_ucShadow.Y + _ucShadow.Height) > (_y+_ucImgMagnifier.smallImg.height()) ? (_y+_ucImgMagnifier.smallImg.height() - _ucShadow.Height) : _ucShadow.Y;
+
+               _ucImgMagnifier.shadow.css("left", _ucShadow.X);
+               _ucImgMagnifier.shadow.css("top", _ucShadow.Y);
+
+               _ucimg2.SetLocation();
+           };
+           //大图定位
+           _ucImgMagnifier.smallImg.hover(function ()  //当进入图片区域时，
+           {
+               //没有图片，不进行操作
+               if (_ucImgMagnifier.smallImg.attr("src") && _ucImgMagnifier.largeImg.attr("src"))
+               {
+                   _ucImgMagnifier.largeDiv.css("left", (_ucImgMagnifier.smallDiv.width() + 20) + "px");
+                   _ucImgMagnifier.largeDiv.css("top", (_ucImgMagnifier.smallDiv.height() - _ucImgMagnifier.largeDiv.height()) / 2 + "px");
+               }
+           }
+           );  //鼠标进入显示
+
+           
+           //监听滚动条事件，触发鼠标移动事件。
+           $("body").scroll(function (e)
+           {
+               e = window.event || e; // 兼容IE7  
+               $(document).mousemove();
+           });
+
+           //判断鼠标是否在阴影外移动呢。 
+           $(document).mousemove(function (e)
+           {
+               e = window.event || e; // 兼容IE7 
+               obj = $(e.srcElement || e.target);  //获取鼠标上的元素
+
+               if (obj.is(_ucImgMagnifier.smallImg))  //小图上移动
+               {
+                   if (_ucImgMagnifier.smallImg.attr("src") && _ucImgMagnifier.largeImg.attr("src"))
+                   {
+                       if (_ucImgMagnifier.shadow.is(":hidden")) //隐藏元素
+                       {
+                           //注意：这里必须先显示。否则Ie模式下  .with() 和.height() 取得值==0
+                           //即，Ie模式下，隐藏的元素jquery不能取到高度和宽度值。 而Chrome模式下可以。 
+                           _ucImgMagnifier.shadow.show();
+                           _ucImgMagnifier.largeDiv.show();
+
+                           //重新设置图片尺寸大小
+                           _ucimg2.ResetSize();
+                           _ucShadow.ResetSize();
+                           //获取阴影数据
+                           _ucShadow.Width = _ucImgMagnifier.shadow.width();
+                           _ucShadow.Height = _ucImgMagnifier.shadow.height();
+                       }
+                       //获取鼠标位置
+                       _ucMouse.GetData(_ucImgMagnifier.smallImg, e.clientX, e.clientY);
+                   }
+               }
+               else if(obj.is(_ucImgMagnifier.shadow))  //阴影上移动
+               {
+                   _ucMouse.GetData(_ucImgMagnifier.smallImg, e.clientX, e.clientY);
+               }
+               else //即没有在小图上移动，也没有在阴影上移动
+               {
+                   if (_ucImgMagnifier.shadow.is(":visible")  //阴影是显示的
+                       || _ucImgMagnifier.largeDiv.is(":visible")  //放大镜是显示的
+                       )       //如果阴影在显示状态
+                   {
+                       _ucImgMagnifier.largeImg.css({ width: "", height: "", left: "0px", top: "0px" });  //还原默认状态。
+                       _ucImgMagnifier.shadow.hide();
+                       _ucImgMagnifier.largeDiv.hide();
+                   }
+               }
+           });
+
+
+       });
+
+
+       _ucImgMagnifier.GalleryClick = function (_this)
+       {
+           var hidden = $(_this).find("input:hidden");
+           _ucImgMagnifier.ChangeImg(hidden.val());
+       };
+
+       _ucImgMagnifier.ChangeImg = function (src)
+       {
+           _ucImgMagnifier.smallImg.attr("src", src);
+           _ucImgMagnifier.largeImg.attr("src", src);
+       };
+
+       _ucImgMagnifier.ThumbLiToLeft = function ()
+       {
+           var sum = _ucImgMagnifier.ThumbUl.find("li").length; //总数量
+           
+           if (sum > 0)
+           {
+               var index = _ucImgMagnifier.ThumbUl.find("li:visible").first().attr("index") - 0;
+               
+               if ((index + 6) <=sum)  //有数据
+               {
+                   //隐藏当前这个
+                   _ucImgMagnifier.ThumbUl.find("li[index=" + index + "]").hide("fast", function ()
+                   {
+                       //显示最右边的那个
+                       _ucImgMagnifier.ThumbUl.find("li[index=" + (index + 6) + "]").show("fast");
+                        
+                       _ucImgMagnifier.ShowArrow();
+                   });
+               }
+           }
+       };
+
+       _ucImgMagnifier.ThumbLiToRight = function ()
+       {
+           var sum = _ucImgMagnifier.ThumbUl.find("li").length; //总数量
+
+           if (sum > 0)
+           {
+               var index = _ucImgMagnifier.ThumbUl.find("li:visible").first().attr("index") - 0;
+
+               if (index>1)  //有数据
+               {
+                   //隐藏最右边的那个
+                   _ucImgMagnifier.ThumbUl.find("li[index=" + (index + 5) + "]").hide("fast", function ()
+                   {
+                       //显示第一个
+                       _ucImgMagnifier.ThumbUl.find("li[index=" + (index - 1) + "]").show("fast");
+
+                       _ucImgMagnifier.ShowArrow();
+                   });
+               }
+           }
+       };
+        
+       _ucImgMagnifier.ShowArrow = function ()
+       {
+           var sum = _ucImgMagnifier.ThumbUl.find("li").length; //总数量
+           if (sum > 0)  //有图片，没有就不用计算了
+           {
+               var index = _ucImgMagnifier.ThumbUl.find("li:visible").first().attr("index") - 0;
+
+               if (index == 1)
+               {
+                   _ucImgMagnifier.ThumbRight.hide();
+               }
+               else
+               {
+                   _ucImgMagnifier.ThumbRight.show();
+               }
+
+               if ((index + 5) >= sum)
+               {
+                   _ucImgMagnifier.ThumbLeft.hide();
+               }
+               else
+               {
+                   _ucImgMagnifier.ThumbLeft.show();
+               }
+           }
+       };
+
+</script>
+
+<div class="ucImgMagnifierBody" id="ucImgMagnifierBody">
+    <div name="ucImgSamllDiv" style="width: 380px; height: 380px; display: block; float: left; margin-bottom: 10px; border: 1px solid #e6e6e6; text-align: center;">
+        <img style="position: relative; width: 100%; top: 0px; left: 0px;" src="__PUBLIC__/Home/images/635757658756034110_849.jpg">
+    </div>
+    <div name="ucImgShadow" class="shadow" style="display: none; width: 166px; height: 166px; left: 198px; top: 214px;"></div>
+    <!--阴影-->
+    <div name="ucImgMsg" class="shadow"></div>
+    <div name="ucImgLargeDiv" class="ucImgLargeDiv" style="left: 400px; top: 15px; display: none;">
+        <img name="LageImage" style="position: absolute; left: 0px; top: 0px;" src="__PUBLIC__/Home/images/635757658756034110_849.jpg">
+    </div>
+    <!--缩略图画廊-->
+    <div class="thumbnails" name="gallery">
+        <table style="padding: 0; margin: 0; width: 395px; position: absolute !important;">
+            <tbody><tr>
+                <td>
+                    <!--左箭头-->
+                    <div class="thumbnails_l" name="ucImgThumbLeft" style="display: none;">
+                        <a href="javascript:;;" onclick="_ucImgMagnifier.ThumbLiToLeft()">
+                            <img src="__PUBLIC__/Home/images/detail_2012_img8.jpg"></a>
+                    </div>
+                </td>
+                <td>
+                    <!--缩略图列表-->
+                    <ul name="ucImgThumbUl" class="thumbnails_c">
+                        <li style="display:" index="1">
+                                <!--先隐藏 用Js显示-->
+                                <a href="javascript:void(0)" onclick="_ucImgMagnifier.GalleryClick(this)">
+                                    <img src="__PUBLIC__/Home/images/635757658756034110_849_small.jpg" style="width:50px; height:50px;">
+                                    <input type="hidden" value="http://www.ccia086.com/Upload/User/365/Pic/Goods/Photo/635757658756034110_849.jpg">
+                                </a>
+                        </li>                   
+                    </ul>
+                </td>
+                <td>
+                    <!--右箭头-->
+                    <div class="thumbnails_r" name="ucImgThumbRight" style="display: none;">
+                        <a href="javascript:;;" onclick="_ucImgMagnifier.ThumbLiToRight()">
+                            <img src="__PUBLIC__/Home/images/detail_2012_img9.jpg"></a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+       </table>
+    </div>
+    
+    <div style="padding: 10px; clear: both; margin: 0 auto; top: 444px;position: absolute; left:0px;">
+        <div style="width: 75px; float: left;">
+            <img src="__PUBLIC__/Home/images/scc.jpg" onclick="_view.CollectGoods(2389)" style="cursor: pointer;">
+        </div>
+    </div>
+
+</div>
+<div class="l_sp_m">
+
+     <div class="j_zt_miaoshu">
+        <div class="j_zt_miaoshu_titl">雅典神话22头
+            <p>红玫瑰骨质瓷，是1973年研制成功，中国首创发明骨质瓷的红玫瑰品牌，结束了中国没有高档骨质瓷的历史，骨瓷在制作过程中加入动物的骨粉(灰)，以牛骨为佳。红玫瑰骨质瓷入选世博会有65个品种，每件瓷器上都有精美的花瓣图案，世博会国宴上中国瓷器将为68个国家的元首提供“花瓣伴美味”的服务。</p>
+        </div>
+
+        <div class="l_jgxx">
+            <span>价格 ：</span>  
+                <span style="color: #ba3378; font-size: 20px; font-weight: bold;"><span id="Price">￥1080.00元</span>
+            </span> 
+			<br>
+            原&nbsp;&nbsp;&nbsp;价 <span style="color: #999; text-decoration: line-through;">&nbsp;1080.00 </span>
+        </div>
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height: 37px; margin-left: 10px; padding: 10px 0;">
+            <tbody>
+            	<tr>
+                    <td style="text-align: right; text-align: justify; width: 50px;"><b>运费：</b></td>
+                    <td style="text-align: left;"><span>满199.00元包邮，普通邮件10.00元/件(套)</span></td>
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height: 40px; margin-left: 10px;">
+                <tbody><tr>
+                    <td width="9%" style="text-align: right; text-align: justify;"><b id="SkuLable">分类：</b></td>
+                    <td id="SkuLst" style="text-align: left">
+
+                    <!---150811新加代码开始-->
+                    <style type="text/css">
+                        .l_tpwt {
+                            width: 100%;
+                            margin: 0 auto;
+                            clear: none;
+                            overflow: hidden;
+                        }
+
+                        .l_tpwt ul li {
+                            width: 50px;
+                            height: 50px;
+                            float: left;
+                            border: 2px solid #c7c6c6;
+                            margin-right: 4px;
+                            margin-left: 3px;
+                            white-space: nowrap;
+                            margin-top: 10px;
+                            position: relative;
+                        }
+
+                        .l_tpwt1 {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            width: 10px;
+                            height: 10px;
+                            overflow: hidden;
+                            text-indent: -99em;
+                            display: block;
+                            background-repeat: no-repeat;
+                            background: url(/Images/xdj.png) no-repeat;
+                        }
+                    </style>
+
+                    <div class="l_tpwt">
+                        <ul> 
+                            <li skuid="4024" style="border: 2px solid rgb(190, 1, 6);"><a href="javascript:void(0)" onclick="_view.SkuClick(this,{&quot;Identifier&quot;:4024,&quot;GoodsId&quot;:2389,&quot;SkuName&quot;:null,&quot;Price&quot;:1080.00,&quot;PromotionPrice&quot;:0.00,&quot;Quantity&quot;:0,&quot;Description&quot;:&quot;描述&quot;,&quot;TheOrder&quot;:0,&quot;Image&quot;:null,&quot;Thumbnail&quot;:null,&quot;Ids&quot;:null,&quot;inPromotion&quot;:2})" style="z-index: -111;"> 
+                                <img src="__PUBLIC__/Home/images/saved_resource" width="50" height="50"></a>
+                                <div name="xdjPng" class="l_tpwt1"> </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!---150811新加代码结束-->
+                </td>
+            </tr>
+
+            <tr>
+                <td width="9%" style="text-align: right; text-align: justify;"><b>数量：</b></td>
+                <td width="91%" style="text-align: left;">
+
+                    <div style="width: 200px; float: left">
+                        <dl class="j_zt_clearfix">
+                            <dd>
+                                <span><input type="text" class="tb-text" value="1" title="请输入购买量" id="BuyCount"></span>
+                                <span class="mui-amount-btn">
+	                                <span class="mui-amount-increase" onclick="_view.AddCount(1)"></span>
+	                                <span class="mui-amount-decrease" onclick="_view.AddCount(2)"></span>
+                                </span>
+                                <span class="mui-amount-unit">件</span>
+                                    <span style="display: inline;">&nbsp;&nbsp;库存<span id="SkuCount">0</span>件</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="l_ann">
+        <!--立即购买-->
+        <a href="javascript:void(0)" onclick="_view.Pay()">
+            <img src="__PUBLIC__/Home/images/an1.jpg" width="192" height="43">
+        </a>
+        <!--加入购物车-->
+        <a href="javascript:void(0)" onclick="_view.AddtoCar()">
+            <img src="__PUBLIC__/Home/images/an2.jpg" width="192" height="43"></a>
+    </div>
+</div>
+                
+<div class="j_zt_see fr">
+    <div class="j_zt_see_see "> <s></s><span>看了又看</span> </div>
+        <div class="j_zt_see_con">
+            <ul>
+                <li><a href=""> <img src="__PUBLIC__/Home/images/635757658756034110_849_small.jpg" width="150" height="150"><p class="j_zt_see_price">￥1080.00</p></a></li>                            
+            </ul>
+    </div>
+</div>
+
+
+            </div>
+
+        </div>
+        <!--商品属性2016-1-11 start-->
+        <div class="j_canshu">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+            </table>
+        </div>
+        <!--商品属性2016-1-11 end-->
+        <!--详情选项卡-->
+        <div class="l_xxk" style="text-align: center;">
+            <div class="j_zt_right_box">
+                <div class="j_zt_frtitl t_right_box" style="position: static; top: 0px;">
+                    <ul>
+                        <li name="TabLi" index="1" onclick="_view.TabClick(this)" class="hover">商品详情</li>
+                        <li name="TabLi" index="2" onclick="_view.TabClick(this)" class="">商品评论(0)</li>
+                        <li name="TabLi" index="3" onclick="_view.TabClick(this)" class="">本月成交量(<font color="#FF0000">0</font>)</li>
+                        <li name="TabLi" index="4" onclick="_view.TabClick(this)" class="">总成交量(<font color="#FF0000">0</font>)</li>
+                    </ul>
+                </div>
+                <!--商品详情-->
+                <div name="con_TabLi" index="1" style="display: block; text-align: left; padding: 10px; line-height: 25px;">
+                    <div class="j_zt_frcon">
+                        <div class="j_zt_spcs">
+                            <div class="l_nz_xx">
+
+                                <div style="font-size: 14px; float: left; padding-left: 20px; width: 100%; clear: both; padding: 20px auto; text-align: left;">
+                                    
+                                </div>
+
+                                <table width="97%" border="0" cellpadding="0" cellspacing="0" style="line-height: 35px; font-size: 14px;">
+                                        <tbody><tr>
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>餐具型号:</b> 22头以下</td>     
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>风格:</b> 贵族欧式</td>     
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>装饰工艺:</b> 釉上彩</td>     
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>适用人数:</b> 6人餐</td>     
+                                        </tr>
+                                        <tr>
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>图案:</b> 几何图案</td>     
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>主图来源:</b> 自主实拍图</td>     
+                                                <td width="25%" style="text-align: left; text-indent: 20px;"><b>价格区间:</b> 1000~3000</td>     
+                                        </tr>
+
+
+                                </tbody></table>
+                            </div>
+
+                            <style type="text/css">
+                                .l_spqq {
+                                    margin: 0 auto;
+                                    clear: both;
+                                    text-align: left;
+                                }
+
+                                    .l_spqq img {
+                                        margin: 0 auto;
+                                        display: block;
+                                    }
+                            </style>
+
+                            <div class="l_spqq">
+                                <img src="__PUBLIC__/Home/images/20150821145641_2692.jpg" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="j_ztsp_pic">
+                    </div>
+                </div>
+                <!--商品评论-->
+                <div class="t_shop_xq" name="con_TabLi" index="2" style="display: none;">
+                    <div class="t_ztpj">
+                        <div class="t_zdf">
+                            <span>整体评价</span><span class="t_fshuz" id="emStarValue">0</span><span class="t_start">
+                                <em id="emStar" style="width: 0px;"></em></span>
+                        </div>
+                        <div class="t_fez">
+                            <span class="t_xst"><em id="emStarValue2" style="left: 0px;">0</em></span> <span class="t_ddd">
+                                <ul>
+                                    <li>非常不满意</li>
+                                    <li>不满意</li>
+                                    <li>一般</li>
+                                    <li>满意</li>
+                                    <li>非常满意</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="t_pl_hp" id="radioDiv">
+                        <span class="t_xx">
+                            <input id="raall" name="radio" type="radio" value="0" onchange="_comment.GetDate(0)" checked="checked">
+                            <label for="raall">全部</label></span>
+                        <span>
+                            <input id="ragood" name="radio" type="radio" value="5" onchange="_comment.GetDate(5)">
+                            <label for="ragood">好评<font id="fontGood">（0）</font></label></span>
+                        <span>
+                            <input id="rageneral" name="radio" type="radio" value="3" onchange="_comment.GetDate(3)">
+                            <label for="rageneral">中评<font id="fontGeneral">（0）</font></label></span>
+                        <span>
+                            <input id="rabad" name="radio" type="radio" value="1" onchange="_comment.GetDate(1)">
+                            <label for="rabad">差评<font id="fontBad">（0）</font></label></span>
+                    </div>
+                    <div class="t_zblb">
+                        <ul style="" id="CommentLstUl"></ul>
+                        <ul id="UL_0"></ul>
+
+                        <div>
+                                    
+
+
+<link href="__PUBLIC__/Home/images/ucPagination.css" rel="stylesheet">
+<script type="text/javascript">
+
+    var _ucPagination =
+        {
+            model:{"CurrentPage":0,"PageSize":0,"SumCount":0,"TotalPage":0,"Action":null,"Controller":null,"UrlArgs":null},  //序列化对象
+            goPage: 0,  //获取当前需要跳转到的页码
+            NumberCount:9,  //显示设置需要显示多少个数字
+            //
+            current: 1,
+            pageSize: 1,
+            sumCount: 1,
+            totalPage:1,
+
+            Div: $(),
+            pageNumber: $(),
+            PageCount: $(),  //总页数
+            tbCurPage:$(),
+            btPageJumpTo:$(),
+            Init: function (thepage, loadfun) { },
+            LoadDate: function () {  //定义装载函数,ajax 需要需要重新写这个函数。 用来执行加载页面的功能
+                if(_ucPagination.model.Action!="" &&_ucPagination.model.Controller!="") 
+                {
+                    var args=(_ucPagination.model.UrlArgs==null?"":_ucPagination.model.UrlArgs); //添加参数
+                    window.location.href="/"+_ucPagination.model.Controller+"/"+_ucPagination.model.Action+"/"+_ucPagination.goPage+args;
+                }
+            }, 
+            ItemClick: function () { },
+            ItemCreate: function (n) { },
+            btPageJumpToClick:function(){}
+        };
+    $(function(){
+        //设置了Model模型，初始化
+        if(_ucPagination.model.CurrentPage>0)
+        {
+            var thepage={
+                CurrentPage:_ucPagination.model.CurrentPage,
+                PageSize:_ucPagination.model.PageSize,
+                SumCount:_ucPagination.model.SumCount,
+                TotalPage:_ucPagination.model.TotalPage
+            };
+            _ucPagination.Init(thepage);  //初始化分页样式
+        }
+    });
+
+
+    _ucPagination.Init = function (thepage)
+    {
+        _ucPagination.current = thepage.CurrentPage;
+        _ucPagination.pageSize = thepage.PageSize;
+        _ucPagination.sumCount = thepage.SumCount;
+        _ucPagination.totalPage = thepage.TotalPage;
+
+        //获取页面元素。 不能在$()中获取，因为有可能调用初始化地方在 html.partion之前
+        _ucPagination.Div = $("#ucPagination");
+        _ucPagination.pageNumber = $("#ucPagination [name=pageNumber]")  //分页列表
+        _ucPagination.PageCount = $("#ucPagination [name=PageCount]").text("共"+_ucPagination.totalPage + "页")  //分页列表
+        _ucPagination.tbCurPage = $("#ucPagination [name=tbCurPage]").val(_ucPagination.current)  //分页列表
+        _ucPagination.btPageJumpTo=$("#ucPagination [name=btPageJumpTo]");  //确定按钮
+
+        $("#ucPagination [name=sumCount]").html("共" + _ucPagination.sumCount + "条,每页" + _ucPagination.pageSize + "条");
+        $("#ucPagination [name=PrePage]").attr("page", _ucPagination.current - 1); //下一页
+        $("#ucPagination [name=NextPage]").attr("page", _ucPagination.current + 1); //下一页
+
+        _ucPagination.tbCurPage.on("keyup", function(event)
+        {
+            this.value=this.value.replace(/\D/gi,""); //只能输入数字
+
+            if (event.keyCode == 13)
+            {
+                _ucPagination.btPageJumpTo.click();  //点击确定按钮
+            }
+        });
+        _ucPagination.btPageJumpTo.click(function(){
+
+            var no=$.trim(_ucPagination.tbCurPage.val());
+
+            if(no=="")
+            {
+                no="1";
+            }
+            var no=parseInt(no); //设置成数字 000=0
+            if(no==0)
+            {
+                no=1;  
+            }
+            _ucPagination.tbCurPage.val(no);  //消除空格,如果没有值，设定成1
+            
+            _ucPagination.goPage =no; 
+
+            if (_ucPagination.goPage > 0 && _ucPagination.goPage <= _ucPagination.totalPage)
+            {
+                _ucPagination.tbCurPage.val(_ucPagination.goPage);  //标记当前页
+                _ucPagination.LoadDate();  //可以由调用方法重新函数
+            }
+
+            _ucPagination.tbCurPage.focus(); //文本框获取焦点。 
+            _ucPagination.tbCurPage.select();  //全选
+        });
+
+        //填写当前页
+        var allNumber = 0;  //统计当前有多少个数据
+        _ucPagination.pageNumber.empty();
+        //添加当前行
+        $('<span class="num"></span>').append(_ucPagination.ItemCreate(_ucPagination.current)).appendTo(_ucPagination.pageNumber);
+        allNumber++;
+        //添加前两行
+        var newItem = $();
+        for (var i = 1; i <= Math.floor((_ucPagination.NumberCount-1)/2); i++)
+        {
+            if (_ucPagination.current - i > 0)
+            {
+                var num = _ucPagination.current - i;
+                _ucPagination.ItemCreate(num).prependTo(_ucPagination.pageNumber);
+                allNumber++;
+            }
+        }
+        //添加后两行或者多行
+        var k = 1;
+
+        while (allNumber < _ucPagination.NumberCount && (_ucPagination.current + k) <= _ucPagination.totalPage)
+        {
+            var num = (_ucPagination.current - 0 + k);
+            _ucPagination.ItemCreate(num).appendTo(_ucPagination.pageNumber);
+
+            k++;
+            allNumber++;
+        }
+        //查看还够不够5个,从头添加,获取最小的数字
+        var firstNum = _ucPagination.pageNumber.find("a").first().text() - 0;
+        var k = 1;
+        while (allNumber < _ucPagination.NumberCount && (firstNum - k) > 0)
+        {
+            var num = firstNum - k
+            _ucPagination.ItemCreate(num).prependTo(_ucPagination.pageNumber);
+
+            k++;
+            allNumber++;
+        }
+    };
+
+    _ucPagination.ItemCreate = function (n)
+    {
+        return $('<a page="' + n + '"  style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)";  >' + n + '</a>');
+    };
+
+    _ucPagination.ItemClick = function (_this)
+    {
+        _ucPagination.goPage = $(_this).attr("page") - 0;
+
+        if (_ucPagination.goPage > 0 && _ucPagination.goPage <= _ucPagination.totalPage)
+        {
+            _ucPagination.tbCurPage.val(_ucPagination.goPage);  //标记当前页
+            _ucPagination.LoadDate();  //可以由调用方法重新函数
+        }
+    }
+
+</script>
+
+<div id="ucPagination" class="pg_page">
+
+<ul class="items">
+
+    <li class="prev-disabled">
+    <span class="num">
+        <a href="javascript:void(0)" page="0" name="PrePage" onclick="_ucPagination.ItemClick(this)" style="text-align:center;">
+            <span class="icon"></span>
+            <span class="pg_shangx pg_Left">上一页</span>
+        </a>
+    </span>
+    </li>
+    <li name="pageNumber" class="item active" style="text-align:center"><span class="num"><a page="1" style="cursor:pointer;" onclick="_ucPagination.ItemClick(this)" ;="">1</a></span></li>
+    <li class="prev-disabled">
+        <a href="javascript:void(0)" page="2" name="NextPage" onclick="_ucPagination.ItemClick(this)" style="text-align:center;">
+            <span class="num">
+                <span class="pg_shangx pg_Left">下一页</span>
+                <span class="icon1"></span>
+            </span>
+        </a>
+    </li>
+    <li style=" margin: 0 ;  border: 0px;">
+        <div class="pg_tzyeshu">
+            <span class="pg_Left">到第</span>
+            <input type="text" style="width:27px;" name="tbCurPage">
+            <span class="pg_Left"> 页&nbsp;&nbsp;<span name="PageCount">共0页</span></span> 
+            &nbsp; &nbsp;<a name="btPageJumpTo" class="jumpto" style="margin-left: 5px;">确定</a></div>
+    </li>
+</ul>
+    </div>
+                            <script type="text/javascript">
+                                //重新写函数
+                                _ucPagination.NumberCount =5 ;         //默认是9个，可以不设定
+                                _ucPagination.LoadDate = function ()    //重写LoadData函数，点击分页时需要调用装载的数据
+                                {
+                                    _comment.PageClick(_ucPagination.goPage);
+                                    //_view.LoadList(_ucPagination.goPage);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <!--表格 模板 -->
+                <table id="TempTurnover" style="display: none;">
+                    <tbody><tr>
+                        <td style="display: none;" name="Identifier"></td>
+                        <td class="l_cjx" name="UserName"></td>
+                        <td class="l_cjx" name="SkuName"></td>
+                        <td class="l_cjx" name="Quantity"></td>
+                        <td class="l_cjx"><font color="#FF0000" name="Price"></font></td>
+                        <td class="l_cjx" name="CreateTime"></td>
+                    </tr>
+                </tbody></table>
+
+
+                <!--月成交量-->
+                <div class="t_shop_xq" name="con_TabLi" index="3" style="display: none;">
+                    <style type="text/css">
+                        .l_cjx {
+                            border-bottom: 1px solid #E3E3E3;
+                            border-right: 1px solid #E3E3E3;
+                        }
+                    </style>
+                    <table width="200" border="0" cellpadding="0" cellspacing="0" style=" border: 1px solid #ccc; height: 30px;line-height: 30px;  border-bottom: 0px;
+  border-right: 0px;">
+                        <thead>
+                            <tr>
+                                <td class="l_cjx"><b>买家</b></td>
+                                <td class="l_cjx"><b>分类</b></td>
+                                <td class="l_cjx"><b>数量</b></td>
+                                <td class="l_cjx"><b>价格</b></td>
+                                <td class="l_cjx"><b>成交时间</b></td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <!--总成交量-->
+                <div class="t_shop_xq" name="con_TabLi" index="4" style="display: none;">
+                    <style type="text/css">
+                        .l_cjx {
+                            border-bottom: 1px solid #E3E3E3;
+                            border-right: 1px solid #E3E3E3;
+                        }
+                    </style>
+                    <table width="200" border="0" cellpadding="0" border-bottom:="" 0px;="" border-right:="" cellspacing="0" style=" border: 1px solid #ccc; height: 30px;line-height: 30px;  border-bottom: 0px;
+  border-right: 0px;">
+                        <thead>
+                            <tr>
+                                <td class="l_cjx"><b>买家</b></td>
+                                <td class="l_cjx"><b>分类</b></td>
+                                <td class="l_cjx"><b>数量</b></td>
+                                <td class="l_cjx"><b>价格</b></td>
+                                <td class="l_cjx"><b>成交时间</b></td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

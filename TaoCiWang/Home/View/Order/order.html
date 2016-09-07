@@ -1,0 +1,246 @@
+<extend name='Index/index' />
+<block name='main'>
+<div class="l_main">
+    <!--ucPersonalColumn 开始-->
+    <div class="l_pgr_l01">
+        <div id="firstpane01" class="menu_list">
+            <!--个人资料-->
+            <p onclick="_ucPserCol.headClick(1)" class="menu_head01" style="border-top: none;">
+                <img src="__PUBLIC__/Home/images/gr_j.png" height="12" width="16">个人资料</p>
+            <div id="Body_1" style="display: none" class="menu_body01">
+                <a href="{:U('Person/baseinfo')}" style="">基本信息</a>
+                <a href="{:U('Person/modifypwd')}" style="">修改密码</a>
+                <a href="{:U('Person/modifyads')}" style="color: #a50049; font-weight: bold;">收货地址</a>
+            </div>
+            
+            <!--我的订单-->
+            <p onclick="_ucPserCol.headClick(2)" class="menu_head01" style="background: #f4f8fb">
+            <img src="__PUBLIC__/Home/images/gr_j.png" height="12" width="16">我的订单</p>
+            <div id="Body_2" style="display: none" class="menu_body01">
+                <a href="{:U('Order/order')}" style="">全部订单</a>
+                <a href="{:U('Order/order')}?order_status=1" style="">未付款</a>
+                <a href="{:U('Order/order')}?order_status=2" style="">待收货</a>
+                <a href="{:U('Order/order')}?order_status=3" style="">待评价</a>
+                <a href="{:U('Order/order')}?order_status=4" style="">已完成</a>
+                <a href="{:U('Order/order')}?order_status=5" style="">退款</a>
+            </div>
+            
+        </div>
+
+        <script type="text/javascript">
+            var _ucPserCol = {
+                column: "PersonalAddress",
+                headClick: function (n) { }
+            };
+            $(function ()
+            {
+                if (_ucPserCol.column == "PersonalBaseInfo"
+                    || _ucPserCol.column == "PersonalPassWord"
+                    || _ucPserCol.column == "PersonalAddress"
+                    )
+                {
+                    $("#Body_1").show();
+                }
+                else if (_ucPserCol.column == "WAIT_BUYER_PAY"
+                    || _ucPserCol.column == "WAIT_BUYER_CONFIRM_GOODS"
+                    || _ucPserCol.column == "WAIT_BUYER_COMMENT"
+                    || _ucPserCol.column == "TRADE_FINISHED"
+                    || _ucPserCol.column == "GOODS_REFUNDING"
+                    ) {
+                    $("#Body_2").show();
+                }
+                else if (_ucPserCol.column == "MyCouponList") {
+                    $("#Body_3").show();
+                }
+            });
+            _ucPserCol.headClick = function (n)
+            {
+                if (n == 0)
+                {
+                    $("#Body_1").slideUp("slow");
+                    $("#Body_2").slideUp("slow");
+                    $("#Body_3").slideUp("slow");
+                }
+                else if (n == 1)
+                {
+                    $("#Body_2").hide();
+                    $("#Body_3").hide();
+                    $("#Body_1").slideDown("slow");
+                }
+                else if(n==2)
+                {
+                    $("#Body_1").hide();
+                    $("#Body_3").hide();
+                    $("#Body_2").slideDown("slow");
+                }
+                else if (n == 3) {
+                    $("#Body_1").hide();
+                    $("#Body_2").hide();
+                    $("#Body_3").slideDown("slow");
+                }
+
+            };
+        </script>
+    </div>
+
+    <div class="j_peisonyou fr">
+        <div class="j_personal_frall fr">
+            <div class="j_personal_gytl">我的订单&nbsp;&nbsp;</div>
+            <div class="j_personal_dd">
+                <div class="j_personal_allbt">
+                    <table style="height: 38px; line-height: 38px; background: #f7f7f7; border: 1px solid #e9e6e6; margin-top: 5px; font-size: 14px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td width="44%">商品</td>
+                                <td width="16%">单价（元）</td>
+                                <td width="12%">数量</td>
+                                <td width="13%">小计（元）</td>
+                                <td width="15%">状态</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <volist name='data' id='vo'>
+                    <table style="border: 1px solid #d7d6d6;" class="j_ddtable" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td colspan="4" style="background: #f5f5f5; height: 35px; line-height: 35px; text-align: left; padding: 0 10px; font-size: 12px;">
+                                    <font class="j_family"></font>&nbsp;
+                                    <b>订单号：<a href="">{$vo.code}</a></b> &nbsp;&nbsp;
+                                    <span>共 {$vo.number} 件商品</span>
+                                    <span>商品：{$vo.price} 元  
+                                            <span>运费 {$vo.luggage} 元</span>
+                                    </span>
+                                    <b>
+                                    <a href="javascript:;" style="color:#8d0049;" class="detail" data='{$vo.id}'>详情</a> &nbsp;&nbsp;<span>[网站支付]</span>
+                                    </b>
+                                </td>
+                                <td colspan="2" class="j_heji" style="text-align: center">合计：<font class="j_yang">￥{$vo.total} 元</font></td>
+                            </tr>
+                            
+                            <tr class="j_trborder">
+                                <td align="center" valign="middle" width="17%"><a href="">
+                                    <img src="/xiangmu/TaoCiWang{$vo.photo}" height="60" width="60"></a>
+                                </td>
+                                <td align="left" valign="top" width="27%">
+                                    <span class="j_redbt"><a href="">{$vo.name}</a></span>
+                                    <span class="j_redmg_des">{$vo.desc}</span>
+                                </td>
+                                <td width="17%"><font class="j_yang">￥</font><font class="j_xianjia">{$vo.price}</font></td>
+                                <td class="j_jiege" width="11%">{$vo.number} 件</td>
+                                <td width="13%">
+                                    <font class="j_yang">￥</font>
+                                    <font class="j_zongji">{$vo.total}</font>
+                                    <br>
+                                    
+                                </td>
+                                <!--订单按钮-->
+
+                                    <td rowspan="1" style="border-left:1px solid #d7d6d6; padding-top:5px;" align="center" valign="top" width="15%">
+                                        <form id="payForm_335" action="/AliPartner/Pay" method="post" style="display:none;">
+                                            <input name="OrderId" value="335" type="hidden">
+                                        </form>
+                                        <if condition="$vo.order_status eq 1">
+                                        <span class="j_fukuan"><a href="{:U('Pay/pay')}?id={$vo.id}">付款</a></span>
+                                        <span class="j_fukuan"><a href="javascript:;" class="cancle" data="{$vo.id}">取消订单</a></span>
+                                        <elseif condition="$vo.order_status eq 2" />
+                                        <span class="j_fukuan"><a href="javascript:;" class="cancle" data="{$vo.id}">取消订单</a></span>
+                                        <elseif condition="$vo.order_status eq 3" />
+                                        <span class="j_fukuan"><a href="javascript:;">马上评价</a></span>
+                                        <span class="j_fukuan"><a href="javascript:;" class="delete" data="{$vo.id}">删除订单</a></span>
+                                        <elseif condition="$vo.order_status eq 4" />
+                                        <span class="j_fukuan"><a href="javascript:;" class="delete" data="{$vo.id}">删除订单</a></span>
+                                        <elseif condition="$vo.order_status eq 4" />
+                                        <span class="j_fukuan"><a href="javascript:;" class="delete" data="{$vo.id}">删除订单</a></span>
+                                        </if>
+                                    </td>
+                            </tr>   
+                        </tbody>
+                    </table> 
+                    </volist>  
+                    <div>{$show}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    //商品编号
+    $('.j_family').each(function(eq){
+        var num=eq+1;
+        $(this).html(num);
+    })
+
+    $('.detail').click(function(){
+        var id=$(this).attr('data');
+        $.get("{:U('Order/recive')}",{"id":id});
+        layer.open({
+          type: 2,
+          title: '陶瓷网',
+          shadeClose: true,
+          shade: 0.3,
+          area: ['1200px', '666px'],
+          content: '{:U("Order/detail")}' //iframe的url
+        });
+    })
+
+    $('.cancle').click(function(){
+        var id=$(this).attr('data');
+        $.ajax({
+            type:"POST",
+            url:"{:U('Order/delete')}",
+            data:"id="+id,
+            success:function(msg){
+                if(msg=='ok'){
+                    layer.open({
+                        type: 1,
+                        title:'淘瓷网',
+                        time:3000,
+                        area: ['300px', '150px'],
+                        shadeClose: true, //点击遮罩关闭
+                        content: '<div style="padding:20px;text-align:center;font-size:13px">订单已取消</div>'
+                    });
+                    location.reload();
+                }else{
+                    layer.open({
+                        type: 1,
+                        title:'淘瓷网',
+                        time:3000,
+                        area: ['300px', '150px'],
+                        shadeClose: true, //点击遮罩关闭
+                        content: '<div style="padding:20px;text-align:center;font-size:13px">系统错误</div>'
+                    });
+                }
+            }
+        })
+    })
+    $('.delete').click(function(){
+        var id=$(this).attr('data');
+        $.ajax({
+            type:"POST",
+            url:"{:U('Order/delete')}",
+            data:"id="+id,
+            success:function(msg){
+                if(msg=='ok'){
+                    layer.open({
+                        type: 1,
+                        title:'淘瓷网',
+                        time:3000,
+                        area: ['300px', '150px'],
+                        shadeClose: true, //点击遮罩关闭
+                        content: '<div style="padding:20px;text-align:center;font-size:13px">订单已删除</div>'
+                    });
+                    location.reload();
+                }else{
+                    layer.open({
+                        type: 1,
+                        title:'淘瓷网',
+                        time:3000,
+                        area: ['300px', '150px'],
+                        shadeClose: true, //点击遮罩关闭
+                        content: '<div style="padding:20px;text-align:center;font-size:13px">系统错误</div>'
+                    });
+                }
+            }
+        })
+    })
+</script>
+</block>

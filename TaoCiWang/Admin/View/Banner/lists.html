@@ -1,0 +1,38 @@
+<extend name="Public/base" />
+<block name="main">
+    <h1>商品列表</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>商品列表</span>
+	  <section>
+      <div class="page_title">
+       <h2 class="fl">商品详情</h2>
+       <form action="" method="get" style="float: right;">
+          <input type="text" name='name' placeholder="商品名称" style="border: 1px solid #19a97b;border-radius: 10px;height: 15px;line-height: 20px;padding: 5px">
+          <input type="submit" value='搜索' style="height: 25px;line-height: 25px;color: #666;background: #FFF;border: none">
+       </form>
+      </div>
+      <table class="table">
+       <tr>
+        <th style="width:40px;text-align: center;">编号</th>
+        <th>图片</th>
+        <th>操作</th>
+       </tr>
+       <volist name='data' id='vo'>
+       <tr>
+        <td>{$vo.id}</td>
+        <td></td>
+        <td>
+         <a href="{:U('Modify/modify')}?id={$vo.id}" class="modify">修改</a>
+         <a href="javascript:;" tid='{$vo.tid}' id='{$vo.id}' class="inner_btn">删除</a>
+        </td>
+       </tr>
+       </volist>
+      </table>
+      <div class="pagination">
+      　　{$show}
+      </div>
+     </section>
+</block>

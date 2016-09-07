@@ -1,0 +1,84 @@
+<?php if (!defined('THINK_PATH')) exit();?><!--顶部小导航-->
+<div class="l_top"> 
+<div class="l_top_z"> 
+<div id="LoginInfo" class="l_top_zl">
+              <span>您好，欢迎来到淘瓷网！</span>
+                <a href="http://www.redroses1960.com/Home/Login">[登录]</a> <a href="<?php echo U('Registr/registr');?>">[注册]</a>
+
+</div>
+<div class="l_top_zr"> 
+
+<div class="t_hear_right">
+    
+<span style="float: left;"><a href="http://www.redroses1960.com/Home/InformationList?InfoColumn=CopmpanyNews" target="_blank">公司新闻</a>|
+    <a href="http://www.redroses1960.com/Home/InfoContent?InfoColumn=BrandInfo" target="_blank">品牌故事</a>|
+    <a href="http://www.redroses1960.com/Home/InformationList?InfoColumn=CeramicKnowledge" target="_blank">陶瓷知识</a>
+    <a href="/xiangmu/TaoCiWang/Admin/Index/index" target="_blank"><font style="color:#ba3378;">企业管理后台</font></a>
+</span>
+    <!-- 微博加关注
+<span class="t_wb">
+    
+    <wb:follow-button uid="3628122995" type="red_1" width="67" height="24" ></wb:follow-button>
+</span>
+        -->
+<span class="t_wb" style="float:right;">
+<a href="tencent://message/?uin=839553236&Site=%E5%B7%A5%E5%85%B7%E5%95%A6&Menu=yes" style=" width:71px; float:left; line-height:31px;">
+<img border="0" src="/xiangmu/TaoCiWang1/Public/Home/images/pa" alt="点击这里给我发消息"></a>
+</span>
+    
+
+<span class="t_wb z_weixin2">
+    <span class="t_wx trigger2"><img src="/xiangmu/TaoCiWang1/Public/Home/images/wx.jpg"></span>
+<div class="z_ewm2" style="opacity: 0;"> 扫描二维码<br> 关注淘瓷网官方微信<div class="z_jt"></div></div>
+</span>
+
+</div>
+
+</div>
+</div>
+</div>
+
+        <!--LOGO及搜索-->
+<div class="l_dahs">
+<div class="l_logo fl"><a href="http://www.redroses1960.com/Home/Index"><img src="/xiangmu/TaoCiWang1/Public/Home/images/logoh.png"></a></div>
+    <div class="l_serch fl">
+        <div class="l_ssd">
+            <span class="l_srk">
+            <input id="masterSearText" type="text" class="l_serch_pt" placeholder="请输入关键字">
+            </span>
+            <span class="l_button">
+                <button type="submit" style="cursor:pointer;" onclick="_master.searchClick()"></button>
+            </span></div>
+<div class="l_gjc"><span class="l_kb">
+热门搜索：<a href="http://www.redroses1960.com/Home/GoodsList?TypeId=1">餐具</a>  
+    <a href="http://www.redroses1960.com/Home/GoodsList?TypeId=2">茶具/咖啡具</a>  
+    <a href="http://www.redroses1960.com/Home/GoodsList?TypeId=3">精选单品</a>  
+    <a href="http://www.redroses1960.com/Home/GoodsList?TypeId=4">艺术瓷/礼品瓷</a>
+</span><span class="l_phone">  咨询电话：0315-3262081   </span></div>  </div>
+    <script src="/xiangmu/TaoCiWang1/Public/Home/js/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+        function ucGotoShopCarClick()
+        {
+            window.location.href = "/Home/ShopCarList?catch="+(new Date().valueOf()) ; //防止缓存
+        }
+    </script>
+<div class="l_gwcd fl">
+    <div class="l_gwcl" style="cursor:pointer" onclick="ucGotoShopCarClick()"> 
+
+    </div>
+    <br>
+</div>
+
+    <br>
+</div>
+<!--导航代码-->
+<div class="l_menu">
+<ul>
+<li style="width:164px; margin-left:-2px; padding:0 30px; color:#fff; font-size:16px; ">全部分类</li>
+<li class="l_dhbjs"><a href="<?php echo U('Index/index');?>">首页</a></li>
+<li class=""><a href="<?php echo U('Newgoods/newgoods');?>">新品首发</a></li>
+<li class=""><a href="<?php echo U('Special/special');?>"> <div class="l_hot"> <img src="/xiangmu/TaoCiWang1/Public/Home/images/hot.png" width="23" height="14"></div>特价商品</a></li>
+<li class=""><a href="<?php echo U('Hot/hot');?>"> <div class="l_hot"> <img src="/xiangmu/TaoCiWang1/Public/Home/images/hot1.png" width="23" height="14"></div>热卖商品</a></li>
+<li class=""><a href="<?php echo U('Promotion/promotion');?>">促销活动</a></li>
+</ul>
+</div>

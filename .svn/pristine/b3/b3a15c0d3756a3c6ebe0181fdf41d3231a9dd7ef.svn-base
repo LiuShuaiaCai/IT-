@@ -1,0 +1,65 @@
+<extend name="Public/base" />
+<block name="main">
+    <h1>添加分类</h1>
+    <hr/>
+    <span>你的位置：</span>
+    <a href=""><span>商品信息</span></a>
+    <span>></span>
+    <span>添加分类</span>
+	 <section>
+      <form action="{:U('AddType/insert')}" method="post"> 
+        <h2><strong style="color:grey;">添加一级分类</strong></h2> 
+        <input type="hidden" name='pid' value="0">
+        <span>一级分类：</span>
+        <input name='name' class="textbox" placeholder="分类名称" type="text" required> 
+        <input value="添加" class="group_btn" type="submit">
+      </form>
+        <hr />
+      <form action="{:U('AddType/insert')}" method="post"> 
+        <h2><strong style="color:grey;">添加级二分类</strong></h2> 
+        <input type="hidden" name='pid' value="0">
+        <span>一级分类：</span>
+        <select name="first" id="first" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="0">选择一级分类</option>
+          <option value="1">餐具</option>
+          <option value="2">茶具/咖啡具</option>
+          <option value="3">最新单品</option>
+          <option value="4">艺术瓷/礼品瓷</option>
+        </select>
+        <br />
+        <span>二级分类：</span>
+        <input name='name' class="textbox" placeholder="分类名称" type="text" required> 
+        <input value="添加" class="group_btn" type="submit">
+
+        <hr />
+
+        <h2><strong style="color:grey;">添加商品</strong></h2> 
+        <input type="hidden" name='pid' value="0">
+        <span>一级分类：</span>
+        <select name="first" id="first" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="0">选择一级分类</option>
+          <option value="1">餐具</option>
+          <option value="2">茶具/咖啡具</option>
+          <option value="3">最新单品</option>
+          <option value="4">艺术瓷/礼品瓷</option>
+        </select>
+        <br />
+        <span>二级分类：</span>
+        <select name="first" id="first" class='textbox' style='height: 38px;width: 292px;margin-bottom: 10px'>
+          <option value="0">选择二级分类</option>
+          <option value="1">餐具</option>
+          <option value="2">茶具/咖啡具</option>
+          <option value="3">最新单品</option>
+          <option value="4">艺术瓷/礼品瓷</option>
+        </select>
+        <br />
+        <span>商品名称：</span><input name='name' class="textbox" placeholder="商品名称" type="text" required><br>
+        <span>商品价格：</span><input name='name' class="textbox" placeholder="商品价格" type="text" required><br>
+        <span>商品描述：</span><input name='name' class="textbox" placeholder="商品描述" type="text" required><br>
+        <span>商品打折：</span><input name='name' class="textbox" placeholder="商品打折" type="text" required><br>
+        <span>商品状态：</span><input name='name' class="textbox" placeholder="商品状态" type="text" required><br> 
+        <span>商品数量：</span><input name='name' class="textbox" placeholder="商品数量" type="text" required><br>  
+        <input value="添加" class="group_btn" type="submit">
+      </form>
+     </section>
+</block>

@@ -1,0 +1,14 @@
+<?php
+	namespace Home\Widget;
+	use Think\Controller;
+	class PublicWidget extends Controller{
+		// 头部函数
+		public function header(){
+			$this->display('Public/header');
+		}
+
+		//尾部函数
+		public function footer(){
+			$this->display('Public/footer');
+		}
+	}

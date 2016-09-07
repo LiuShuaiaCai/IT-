@@ -1,0 +1,15 @@
+<?php
+	namespace Home\Controller;
+	use Think\Controller;
+	class TypeListController extends Controller{
+		public function lists(){
+			//实例化Type类
+			$type=M('type');
+			//获取分类
+			$data=$type->select();
+			//分配变量
+			$this->assign('data',$data);
+			//分配模板
+			$this->display();
+		}
+	}

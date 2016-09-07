@@ -1,0 +1,57 @@
+<?php if (!defined('THINK_PATH')) exit();?><!--底部代码开始-->
+<div class="bottom">
+<div class="t_guzm">
+<ul>
+
+<li><span><a href="http://www.redroses1960.com/Home/AboutFile?Index=11">新手教程</a></span><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=12">会员介绍</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=13">购物流程</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=14">常见问题</a></li>
+
+<li><span><a href="http://www.redroses1960.com/Home/AboutFile?Index=21">支付方式</a></span><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=22">货到付款</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=23">在线支付</a></li>
+
+<li><span><a href="http://www.redroses1960.com/Home/AboutFile?Index=31">配送服务</a></span><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=32">配送政策</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=33">开箱验货</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=34">配送运费</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=35">配送范围</a></li>
+
+<li><span><a href="http://www.redroses1960.com/Home/AboutFile?Index=41">帮助中心</a></span><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=42">退款说明</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=43">退换货流程</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=44">退换货政策</a><br>
+<a href="http://www.redroses1960.com/Home/AboutFile?Index=45">隐私条款</a></li>
+<li class="t_bottom_wx">
+    红玫瑰官方微信<br>
+  <img src="/xiangmu/TaoCiWang/Public/Home/images/z_ewm.png" width="98" height="95" title="扫一扫,更精彩">
+    扫一扫更精彩
+</li>
+</ul>
+</div>
+<div class="t_bottom_gywm"><span style="padding-top:8px; padding-right:25px;float:left;margin-left:214px;">
+        <a href="http://www.redroses1960.com/Home/AboutFile?Index=51">关于我们</a>
+        <a href="http://www.redroses1960.com/Home/AboutFile?Index=52">联系我们</a>
+        <a href="http://www.redroses1960.com/Home/AboutFile?Index=53">招聘人才</a>
+        <a href="http://www.redroses1960.com/Home/AboutFile?Index=54">友情链接</a>
+        <a href="http://www.redroses1960.com/?cache=635944204909003169#">供应商申请</a>Cppyright？ 版权所有 唐山市红玫瑰陶瓷商城<br>
+京公网安备110235353366526号 京ICP备1425522号 企业营业执照</span></div>
+</div>
+     
+                           <div style="text-align:center; display:none;">
+        <script language="javascript" type="text/javascript" src="./红玫瑰陶瓷商城_files/17862029.js"></script><a href="http://www.51.la/?17862029" target="_blank" title="51.La 网站流量统计系统"><img alt="51.La 网站流量统计系统" src="/xiangmu/TaoCiWang/Public/Home/images/icon_0.gif" style="border:none"></a>
+
+    <noscript>&lt;a href="http://www.51.la/?17862029" target="_blank"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/17862029.asp" style="border:none" /&gt;&lt;/a&gt;</noscript>
+
+<!--陶瓷官网统计-->
+            
+            <script language="javascript" type="text/javascript" src="/xiangmu/TaoCiWang/Public/Home/js/AccessCount.js"></script>
+            <script type="text/javascript">
+                $(function ()
+                {
+                    var accessCount = new AccessCount();
+                    accessCount.save(1);
+                });
+            </script>
+            </div>

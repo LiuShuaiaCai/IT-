@@ -1,0 +1,61 @@
+[ 2016-05-02T21:10:01+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/TypeList/index.php
+ERR: 非法操作:index.php
+
+[ 2016-05-02T23:37:11+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001726s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001444s ]
+
+[ 2016-05-02T23:37:19+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001601s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002191s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002277s ]
+
+[ 2016-05-02T23:37:33+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001580s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000948s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000996s ]
+
+[ 2016-05-02T23:37:38+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000911s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001777s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000905s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000960s ]
+
+[ 2016-05-02T23:38:17+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000992s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2016-05-02T23:38:20+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001360s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001396s ]
+
+[ 2016-05-02T23:41:34+08:00 ] ::1 /xiangmu/TaoCiWang/index.php/Admin/AddType/find
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000993s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001911s ]
+SQL: DESCRIBE taoci_type [ RunTime:0.005446s ]
+SQL: SELECT * FROM `taoci_type` WHERE `pid` = 4  [ RunTime:0.000552s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001461s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001522s ]
+

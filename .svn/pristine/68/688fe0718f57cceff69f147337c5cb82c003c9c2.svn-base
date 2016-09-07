@@ -1,0 +1,12 @@
+<?php
+	namespace Home\Controller;
+	use Think\Controller;
+	class RegistrController extends Controller
+	{
+		public function registr(){
+			$this->display();
+		}
+		public function insert(){
+			$this->redirect('Login/login');
+		}
+	}
